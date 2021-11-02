@@ -4378,10 +4378,6 @@ boost/thread.hpp
 thread
 -
 
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/src/RwsInterface.cpp
-RwsInterface.h
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/src/RwsInterface.h
-
 /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/src/RwsInterface.h
 rw/rw.hpp
 -
@@ -4405,6 +4401,10 @@ boost/thread.hpp
 -
 thread
 -
+
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/src/controller.cpp
+RwsInterface.h
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/src/RwsInterface.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core

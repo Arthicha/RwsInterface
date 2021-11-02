@@ -12,9 +12,9 @@ int main (int argc, char** argv)
     {
         sim.setup(&app);
         Mat img1 = sim.getImage(0);
-        imshow("img",img1);
-        //Mat img2 = sim.getImage(1);
-        //imshow("left",img2);
+        imshow("img1",img1);
+        Mat img2 = sim.getImage(1);
+        imshow("img2",img2);
         waitKey(0);
         app.close ();
     }RWS_END()

@@ -81,7 +81,10 @@ public:
     /**************************************************************************
     *                            Public variables                             *
     **************************************************************************/
-
+    RobWorkStudioApp* app; // RobWorkStudio Application
+    RobWorkStudio* rwstudio; // RobWorkStudio Object
+    vector<Frame*> cams; // camera pointer
+    State state; // state variable
 private:
 
     /**************************************************************************
@@ -89,16 +92,15 @@ private:
     **************************************************************************/
     WorkCell::Ptr wc; // workcell
     Device::Ptr ur; // UR5 robot 
-    State state; // state variable
+    
 
-    vector<Frame*> cams; // camera pointer
+    
     double cams_f[2] = {0.0}; // camera focal length
     int cams_w[2] = {0}; // image width
     int cams_h[2] = {0}; // image height
 
     string wc_file; // workcell name
-    RobWorkStudioApp* app; // RobWorkStudio Application
-    RobWorkStudio* rwstudio; // RobWorkStudio Object
+    
 
 
 

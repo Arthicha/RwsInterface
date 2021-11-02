@@ -63,12 +63,15 @@ Mat RwsInterface::getImage(int camNum)
     int width;
     int height;
     iss >> fovy >> width >> height;
-    this->rwstudio = this->app->getRobWorkStudio ();
-    this->rwstudio->postOpenWorkCell(this->wc_file);
+
+
     const SceneViewer::Ptr gldrawer = this->rwstudio->getView ()->getSceneViewer();
     const GLFrameGrabber::Ptr framegrabber = ownedPtr (new GLFrameGrabber (width, height, fovy));
     framegrabber->init (gldrawer);
     framegrabber->grab(this->cams.at(camNum), this->state);
-    const Image* rw_image = &(framegrabber->getImage());
-    return Mat(rw_image->getHeight(), rw_image->getWidth(), CV_8UC3, (Image*)rw_image->getImageData());
+    Image* rw_image = &(framegrabber->getImage());
+    rw_image->saveAsPPM ("image.ppm");
+    Mat img = imread("image.ppm");
+    return img;
+    //return Mat(rw_image->getHeight(), rw_image->getWidth(), CV_8UC3, (Image*)rw_image->getImageData());
 }
