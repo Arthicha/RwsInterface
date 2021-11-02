@@ -1,0 +1,4 @@
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/build/CMakeFiles/rebuild_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/build/CMakeFiles/edit_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/build/CMakeFiles/Controller.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/Controller/build/CMakeFiles/Controller_autogen.dir
