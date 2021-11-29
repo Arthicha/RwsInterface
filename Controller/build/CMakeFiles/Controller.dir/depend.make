@@ -393,8 +393,13 @@ CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionDetector.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionSetup.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionStrategy.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionToleranceStrategy.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/DistanceMultiStrategy.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/DistanceStrategy.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityCalculator.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximitySetup.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityStrategy.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityStrategyData.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/rw.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/sensor.hpp
@@ -413,6 +418,7 @@ CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/trajectory/Trajectory.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/trajectory/TrajectoryIterator.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/control/Controller.hpp
+CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/proximitystrategies/ProximityStrategyFactory.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/FrameGrabber.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/GLFrameGrabber.hpp
 CMakeFiles/Controller.dir/src/RwsInterface.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/SimulatedCamera.hpp
@@ -1202,8 +1208,13 @@ CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/R
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionDetector.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionSetup.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionStrategy.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/CollisionToleranceStrategy.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/DistanceMultiStrategy.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/DistanceStrategy.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityCalculator.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximitySetup.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityStrategy.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/proximity/ProximityStrategyData.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/rw.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/sensor.hpp
@@ -1222,6 +1233,7 @@ CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/R
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/trajectory/Trajectory.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rw/trajectory/TrajectoryIterator.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/control/Controller.hpp
+CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/proximitystrategies/ProximityStrategyFactory.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/FrameGrabber.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/GLFrameGrabber.hpp
 CMakeFiles/Controller.dir/src/controller.cpp.o: /home/zubuntu/Projects/RobWork/RobWork/cmake/../src/rwlibs/simulation/SimulatedCamera.hpp

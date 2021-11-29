@@ -11,11 +11,22 @@ int main (int argc, char** argv)
     RWS_START (app)
     {
         sim.setup(&app);
+        sim.setDelay(200);
+        sim.setTargetIdx(0);
+        
+        while(1)
+        {
+            sim.setIK(sim.getObjectPose(0)); 
+        }
+        /*
+        --------- get images ---------
         Mat img1 = sim.getImage(0);
         imshow("img1",img1);
         Mat img2 = sim.getImage(1);
         imshow("img2",img2);
         waitKey(0);
+        ------------------------------
+        */
         app.close ();
     }RWS_END()
 

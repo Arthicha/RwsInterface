@@ -20,6 +20,7 @@ Email: arsri21@student.sdu.dk
 #include <rw/loaders/WorkCellLoader.hpp>
 #include <rwlibs/simulation/GLFrameGrabber.hpp>
 #include <rwlibs/simulation/SimulatedCamera.hpp>
+#include <rwlibs/proximitystrategies/ProximityStrategyFactory.hpp>
 
 // RobWorkStudio libraries
 #include <rwslibs/rwstudioapp/RobWorkStudioApp.hpp>
@@ -30,7 +31,6 @@ Email: arsri21@student.sdu.dk
 // multi-threading libraries
 #include <boost/thread.hpp>
 #include <thread>   
-    
 
 /******************************************************************************
 *                                     Prefix                                  *
@@ -42,12 +42,16 @@ using namespace std;
 // RobWork
 using namespace rw::core;
 using namespace rw::common;
+using namespace rw::math;
 using namespace rw::kinematics;
 using namespace rw::models;
 using namespace rw::graphics;
 using namespace rw::loaders;
-using rw::sensor::Image;
 using namespace rwlibs::simulation;
+using namespace rw::invkin;
+using namespace rw::proximity;
+using namespace rwlibs::proximitystrategies;
+using rw::sensor::Image;
 
 // RobWorkStudio
 using namespace rws;
@@ -63,7 +67,6 @@ using rw::graphics::SceneViewer;
 
 class RwsInterface
 {
-
 public:
 
     /**************************************************************************
@@ -72,6 +75,8 @@ public:
     RwsInterface(const string &_wc_file);
     virtual ~RwsInterface();
     void setup(RobWorkStudioApp* _app);
+    void setDelay(int t);
+    void setTargetIdx(int idx);
 
     /**************************************************************************
     *                             Camera Interface                            *
@@ -79,11 +84,21 @@ public:
     Mat getImage(int camNum);
 
     /**************************************************************************
+    *                            Kinematics Operation                         *
+    **************************************************************************/
+    Transform3D<> getObjectPose(int idx);
+
+    /**************************************************************************
+    *                              Motion Control                             *
+    **************************************************************************/
+    void setFK(Q joint_angle);
+    void setIK(Transform3D<> Ttarget);
+    Q getIK(Transform3D<> frameBaseTGoal);
+    Transform3D<> getFK(Q q);
+
+    /**************************************************************************
     *                            Public variables                             *
     **************************************************************************/
-    RobWorkStudioApp* app; // RobWorkStudio Application
-    RobWorkStudio* rwstudio; // RobWorkStudio Object
-    vector<Frame*> cams; // camera pointer
     State state; // state variable
 private:
 
@@ -91,15 +106,39 @@ private:
     *                            Private variables                            *
     **************************************************************************/
     WorkCell::Ptr wc; // workcell
-    Device::Ptr ur; // UR5 robot 
-    
-
-    
+    SerialDevice::Ptr ur; // UR5 robot 
+        
     double cams_f[2] = {0.0}; // camera focal length
     int cams_w[2] = {0}; // image width
     int cams_h[2] = {0}; // image height
 
+    int t_delay = 0.0; // delay time
+    int objectId = 0.0; // object id (not to check collision with this)
     string wc_file; // workcell name
+
+    RobWorkStudioApp* app; // RobWorkStudio Application
+    RobWorkStudio* rwstudio; // RobWorkStudio Object
+
+    Frame* tcp; // tcp frame
+    Frame* urbase; // ur base
+    Frame* tool; // tool frame
+    vector<Frame*> object; // vector of object frames
+    vector<String> objectName; // vector of object names
+    vector<Frame*> cams; // camera pointer
+
+    
+
+    ClosedFormIKSolverUR::Ptr closedFormSovler;
+    CollisionDetector::Ptr detector;
+
+    /**************************************************************************
+    *                             Private Methods                             *
+    **************************************************************************/
+
+    bool checkCollision(Q q);
+    bool checkFKIK(Transform3D<> FKresult, Q IKresult,float threshold);
+
+
     
 
 
