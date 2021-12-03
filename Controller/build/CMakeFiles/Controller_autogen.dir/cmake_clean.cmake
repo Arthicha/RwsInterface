@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "Controller_autogen"
-  "CMakeFiles/Controller_autogen.dir/AutogenOldSettings.txt"
   "CMakeFiles/Controller_autogen"
   "Controller_autogen/mocs_compilation.cpp"
 )
