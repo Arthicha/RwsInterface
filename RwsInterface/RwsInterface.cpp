@@ -444,6 +444,17 @@ void RwsInterface::setGripper(bool state)
     }
 }
 
+void RwsInterface::setGraspingOrientation(int mode)
+{
+    /* 
+    function type: public function
+    input: gripper mode
+    output: none
+    detail: set whether the gripper has to grasp the object on the top or the front
+    */
+    this->grasping_orien = mode;
+}
+
 /**************************************************************************
 *                               Stereo Vision                             *
 **************************************************************************/
@@ -462,7 +473,14 @@ Transform3D<>  RwsInterface::sparseStereo(int method)
     Tobj.P()(2) = this->sparseHeight(method);
 
     Transform3D<> Tbasecam = Kinematics::frameTframe(this->urbase, this->cams.at(0), this->state);
-    return Tbasecam*Tobj*Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(0.0,0.0,3.14/2)));
+    if (this->grasping_orien == 0)
+    {
+        return Tbasecam*Tobj*Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(0.0,0.0,3.14/2)));
+    }else{
+        return Tbasecam*Tobj*Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(3.14,0,0)));
+    }
+    //
+    
 }
 
 Mat RwsInterface::computeDisparity()

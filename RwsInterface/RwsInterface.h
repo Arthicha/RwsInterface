@@ -156,6 +156,7 @@ public:
     *                             Gripper Control                             *
     **************************************************************************/
     void setGripper(bool state);
+    void setGraspingOrientation(int mode);
 
     /**************************************************************************
     *                               Stereo Vision                             *
@@ -178,6 +179,7 @@ private:
     int cams_h[2] = {0}; // image height
 
     int t_delay = 0.0; // delay time
+    int grasping_orien = 0; // grasping orientation (0 = from the top, 1 = from the front)
     int objectId = 0.0; // object id (not to check collision with this)
     float grasping_z = 0.0; // grasping height
     string wc_file; // workcell name

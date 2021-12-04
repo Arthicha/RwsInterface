@@ -1,7 +1,7 @@
 #include "RwsInterface.h"
 #include <random>
 
-#define WC_FILE "../../Project_WorkCell/Scene.wc.xml"
+#define WC_FILE "../src/Project_WorkCell/Scene.wc.xml"
 #define PLANNINGALGO 0
 
 int randomGenerator()
@@ -22,6 +22,7 @@ int main (int argc, char** argv)
         // setup
         sim.setup(&app);
         sim.setDelay(10);
+        sim.setGraspingOrientation(0);
         sim.setTargetIdx(rand);
         for (int i=0;i<3;i++) 
         {
@@ -35,7 +36,6 @@ int main (int argc, char** argv)
         sim.update();
         // estimate object pose
         Transform3D<> target = sim.sparseStereo(1);
-
         // move
         sim.planning(sim.getIK(target),PLANNINGALGO);
         sim.update();
