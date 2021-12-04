@@ -1,4 +1,0 @@
-/home/student/RoViProject2/RobVisProject-/Controller/build/CMakeFiles/rebuild_cache.dir
-/home/student/RoViProject2/RobVisProject-/Controller/build/CMakeFiles/edit_cache.dir
-/home/student/RoViProject2/RobVisProject-/Controller/build/CMakeFiles/Controller.dir
-/home/student/RoViProject2/RobVisProject-/Controller/build/CMakeFiles/Controller_autogen.dir

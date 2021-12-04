@@ -97,6 +97,13 @@
 		0 0 1 0.082    		
 	</Transform>
  </Frame>
+ <Frame name="TCP2" refframe="TCP" >
+	<Transform>
+		1 0 0 0
+		0 1 0 0
+		0 0 1 0.1700    		
+	</Transform>
+ </Frame>
 
  <PosLimit refjoint="Joint0" min="-180" max="180" />
  <PosLimit refjoint="Joint1" min="-270" max="90" />
