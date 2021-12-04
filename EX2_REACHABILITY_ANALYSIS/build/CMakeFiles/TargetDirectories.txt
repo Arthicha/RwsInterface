@@ -1,0 +1,4 @@
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX2_REACHABILITY_ANALYSIS/build/CMakeFiles/rebuild_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX2_REACHABILITY_ANALYSIS/build/CMakeFiles/edit_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX2_REACHABILITY_ANALYSIS/build/CMakeFiles/EX2_REACHABILITY_ANALYSIS.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX2_REACHABILITY_ANALYSIS/build/CMakeFiles/EX2_REACHABILITY_ANALYSIS_autogen.dir

@@ -151,7 +151,7 @@ Mat RwsInterface::getImage(int camNum)
     Mat img(rw_image->getHeight(),rw_image->getWidth(), CV_8UC3);
     img.data = (uchar*)rw_image->getImageData();
     Mat result;
-    cvtColor( img, result, CV_BGR2RGB );
+    cvtColor( img, result, COLOR_RGB2BGR );
     return result;
 }
 
@@ -243,7 +243,6 @@ Q RwsInterface::getIK(Transform3D<> frameBaseTGoal)
     Q q_best(6,-10.0,-10.0,-10.0,-10.0,-10.0,-10.0);
     float dist_best = 1e10;
     float diff = 0.0;
-    cout << qs.size() << " size" << endl;
     for (uint i=0;i<qs.size();i++)
     {
         if(not this->checkUrCollision(qs.at(i))) // collision test
@@ -321,6 +320,12 @@ Q RwsInterface::getGoalQ()
     target = target * Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(0.0,0.0,3.14/2)));
     Transform3D<> ik( Vector3D<>(target.P()(0),target.P()(1),this->grasping_z), target.R());
     return this->getIK(ik);
+}
+
+Transform3D<> RwsInterface::worldTobase(Transform3D<> H)
+{
+    Transform3D<> Hbw = Kinematics::frameTframe(this->urbase, this->wc->getWorldFrame(), this->state);
+    return Hbw*H;
 }
 
 /**************************************************************************
@@ -491,8 +496,8 @@ Mat RwsInterface::computeDisparity()
     output: disparity map
     detail: estimate the disparitymap using dense stereo 
     */
-    Mat imgL = this->getImage(0);
-    Mat imgR = this->getImage(1);
+    Mat imgL = this->getImage(1);
+    Mat imgR = this->getImage(0);
     // Setting parameters for StereoSGBM algorithm
     int minDisparity = 0;
     int numDisparities = 100;
@@ -503,17 +508,18 @@ Mat RwsInterface::computeDisparity()
     int speckleRange = 8;
 
     // Creating an object of StereoSGBM algorithm
-    cv::Ptr<cv::StereoSGBM> sgbm = cv::StereoSGBM::create(minDisparity,numDisparities,blockSize, disp12MaxDiff,uniquenessRatio,speckleWindowSize,speckleRange);
+    cv::Ptr<cv::StereoSGBM> stereo = cv::StereoSGBM::create(minDisparity,numDisparities,blockSize, disp12MaxDiff,uniquenessRatio,speckleWindowSize,speckleRange);
 
     // Calculating disparith using the StereoSGBM algorithm
     cv::Mat disp;
-    sgbm->compute(imgL,imgR,disp);
+    stereo->compute(imgL,imgR,disp);
 
     // Normalizing the disparity map for better visualisation
     cv::normalize(disp, disp, 0, 255, cv::NORM_MINMAX, CV_8UC1);
 
     return disp;
 }
+
 
 /**************************************************************************
 *                             Private Methods                             *

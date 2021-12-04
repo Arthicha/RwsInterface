@@ -139,6 +139,7 @@ public:
     bool setIK(Transform3D<> Ttarget);
     Q getHomeQ();
     Q getGoalQ();
+    Transform3D<> worldTobase(Transform3D<> H);
 
     /**************************************************************************
     *                              Motion Control                             *

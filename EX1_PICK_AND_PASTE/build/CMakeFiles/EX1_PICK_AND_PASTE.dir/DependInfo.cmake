@@ -70,7 +70,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/zubuntu/Projects/RobWork/RobWork/ext/rwpqp"
   "/home/zubuntu/Projects/RobWork/RobWork/ext/csgjs/src"
   "/home/zubuntu/Projects/RobWork/RobWork/src"
-  "/usr/include/opencv"
+  "/usr/local/include/opencv4"
   "/home/zubuntu/Projects/RobWork/RobWorkStudio/src"
   "/home/zubuntu/Projects/RobWork/RobWorkStudio/ext/qtpropertybrowser/src"
   "/usr/include/x86_64-linux-gnu/qt5"

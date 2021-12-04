@@ -23,7 +23,7 @@ message(${RWS_INTERFACE})
 # Verbose mode prints more info when doing make
 set(CMAKE_VERBOSE_MAKEFILE false)
 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 4.2.0 REQUIRED)
 find_package( PCL REQUIRED )
 
 # Set build type to release
