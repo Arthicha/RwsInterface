@@ -74,7 +74,7 @@ void RwsInterface::setup(RobWorkStudioApp* _app)
     this->app->getRobWorkStudio()->setWorkCell(this->wc);
     this->tcp = this->wc->findFrame("UR-6-85-5-A.TCP");
     this->tool = this->wc->findFrame("WSG50.TCP");
-    this->urbase = this->wc->findFrame("UR-6-85-5-A.Base");
+    this->urbase = this->wc->findFrame<MovableFrame>("URReference");
     this->urref = this->wc->findFrame<MovableFrame>("URReference");
     this->goal = this->wc->findFrame<MovableFrame>("Goal");
     this->objectName.push_back("Bottle");
@@ -130,7 +130,7 @@ Mat RwsInterface::getImage(int camNum)
     int width;
     int height;
     iss >> fovy >> width >> height;
-    double fovy_pixel = height / 2 / tan(fovy * (2*M_PI) / 360.0 / 2.0 );
+    double f = height / 2 / tan(fovy * (2*M_PI) / 360.0 / 2.0 );
     // update K matrix
     this->K.at(camNum).at<double>(0,0) = width;
     this->K.at(camNum).at<double>(1,1) = height;
@@ -138,11 +138,11 @@ Mat RwsInterface::getImage(int camNum)
     this->K.at(camNum).at<double>(1,2) = height/2.0;
     this->K.at(camNum).at<double>(2,2) = 1.0;
     // update A matrix
-    this->A.at(camNum).at<double>(0,0) = fovy_pixel;
-    this->A.at(camNum).at<double>(1,1) = fovy_pixel;
+    this->A.at(camNum).at<double>(0,0) = f;
+    this->A.at(camNum).at<double>(1,1) = f;
     this->A.at(camNum).at<double>(2,2) = 1.0;
     // update H matrix
-    this->H.at(camNum) = this->rwH2cvH(Kinematics::frameTframe(this->urbase, this->cams.at(camNum), this->state));
+    this->H.at(camNum) = this->rwH2cvH(Kinematics::frameTframe(this->wc->getWorldFrame(), this->cams.at(camNum), this->state));
     const SceneViewer::Ptr gldrawer = this->rwstudio->getView ()->getSceneViewer();
     const GLFrameGrabber::Ptr framegrabber = ownedPtr (new GLFrameGrabber (width, height, fovy));
     framegrabber->init (gldrawer);
@@ -179,6 +179,7 @@ void RwsInterface::moveUR(float x, float y, float z,float roll, float pitch, flo
     detail: move the robot to the target position and orientaiton
     */
     Transform3D<> target(Vector3D<>(x,y,z),Rotation3D<>(RPY<>(roll,pitch,yaw)));
+    this->urbase->moveTo(target,this->state);  
     this->urref->moveTo(target,this->state);  
 }
 
@@ -305,6 +306,7 @@ Q RwsInterface::getHomeQ()
     detail: get robot home configuration (Q)
     */
     return Q(6,1.571,-0.785,-1.571,-2.356,1.571,0.00);
+    //return Q(6,1.571,0,0,0,0,0);
 }
 
 
@@ -326,6 +328,23 @@ Transform3D<> RwsInterface::worldTobase(Transform3D<> H)
 {
     Transform3D<> Hbw = Kinematics::frameTframe(this->urbase, this->wc->getWorldFrame(), this->state);
     return Hbw*H;
+}
+
+Transform3D<> RwsInterface::baseToworld(Transform3D<> H)
+{
+    Transform3D<> Hbw = Kinematics::frameTframe(this->wc->getWorldFrame(), this->urbase,  this->state);
+    return Hbw*H;
+}
+
+float RwsInterface::getPoseDiff(Transform3D<> T)
+{
+    Transform3D<> T_ = Kinematics::frameTframe(this->wc->getWorldFrame(), this->tool, this->state);
+    float error = 0.0;
+    for(int i=0;i<3;i++)
+    {
+        error += (T.P()(i)-T_.P()(i))*(T.P()(i)-T_.P()(i));
+    }
+    return sqrt(error);
 }
 
 /**************************************************************************
@@ -370,7 +389,7 @@ void RwsInterface::moveToGoal()
 /**************************************************************************
 *                              Path Planning                              *
 **************************************************************************/
-void RwsInterface::planning(Q to, int algo)
+bool RwsInterface::planning(Q to, int algo, float estepsize)
 {
     /* 
     function type: public function
@@ -390,31 +409,49 @@ void RwsInterface::planning(Q to, int algo)
     switch(algo) // algorithm selection
     {
         case 0: 
-            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, ESTEPSIZE, RRTPlanner::RRTBalancedBidirectional);
+            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, estepsize, RRTPlanner::RRTBalancedBidirectional);
             break;
         case 1: 
-            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, ESTEPSIZE, RRTPlanner::RRTBidirectional);
+            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, estepsize, RRTPlanner::RRTBidirectional);
             break;
         case 2: 
-            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, ESTEPSIZE, RRTPlanner::RRTConnect);
+            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, estepsize, RRTPlanner::RRTConnect);
             break;
         case 3: 
-            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, ESTEPSIZE, RRTPlanner::RRTBasic);
+            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, estepsize, RRTPlanner::RRTBasic);
             break;
         default:
-            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, ESTEPSIZE, RRTPlanner::RRTBalancedBidirectional);
+            planner = RRTPlanner::makeQToQPlanner(constraint, sampler, metric, estepsize, RRTPlanner::RRTBalancedBidirectional);
             break;
     }
     
     // planning
-    planner->query(from, to, path);
-
+    bool complete = planner->query(from, to, path);
+    if (not complete)
+    {
+        return false;
+    }
     // looping
+    Q path_i = from;
+    Q path_j = from;
+    Q diff = from;
+    this->moving_distance = 0.0;
     for(int i=0; i < path.size(); i++)
     {
-        this->setFK(path[i]);
+        path_j = path[i];
+        this->setFK(path_j);
         this->update();
+        diff = path_j-path_i;
+        this->moving_distance += diff.norm2();
+        path_i = path_j;
+
     }
+    return true;
+}
+
+float RwsInterface::getMovingDistance()
+{
+    return this->moving_distance;
 }
 
 /**************************************************************************
@@ -472,10 +509,10 @@ Transform3D<>  RwsInterface::sparseStereo(int method)
     output: homogeneous transformation matrix of the object pose
     detail: estimate the homogeneous transformation matrix of the object pose using sparse stereo 
     */
-    imwrite("../../RwsInterface/img0.png",this->getImage(0));
-    imwrite("../../RwsInterface/img1.png",this->getImage(1));
+    imwrite("../../RwsInterface/stereo/img0.png",this->getImage(0));
+    imwrite("../../RwsInterface/stereo/img1.png",this->getImage(1));
     Transform3D<> Tobj = this->sparseCenter(method);
-    Tobj.P()(2) = this->sparseHeight(method);
+    //Tobj.P()(2) = this->sparseHeight(method);
 
     Transform3D<> Tbasecam = Kinematics::frameTframe(this->urbase, this->cams.at(0), this->state);
     if (this->grasping_orien == 0)
@@ -518,6 +555,11 @@ Mat RwsInterface::computeDisparity()
     cv::normalize(disp, disp, 0, 255, cv::NORM_MINMAX, CV_8UC1);
 
     return disp;
+}
+
+void RwsInterface::setStereoNoise(float var)
+{
+    this->noisevar = var;
 }
 
 
@@ -651,17 +693,18 @@ Transform3D<> RwsInterface::sparseCenter(int method)
     output: estimated homogeneous transformation matrix of the object
     detail: estimate homogeneous transformation matrix of the object using single point
     */
-    string cmd("python3 ../../RwsInterface/sparseStereo.py ");
+    string cmd("python3 ../../RwsInterface/stereo/sparseStereo.py ");
     cmd.append(to_string(method));
     cmd.append(" ");
     cmd.append(to_string(this->A.at(0).at<double>(0,0)));
     cmd.append(" ");
     cmd.append(to_string(this->H.at(0).at<double>(0,3)-this->H.at(1).at<double>(0,3)));
-    cmd.append(" 1.0 100 0 1.1");
+    cmd.append(" 1.0 100 0 1.1 ");
+    cmd.append(to_string(this->noisevar));
     system(cmd.c_str());
 
     PointCloud<point>::Ptr cloud (new PointCloud<point>);
-    vector<vector<float>> matches = this->readCSV(String("../../RwsInterface/python_output.csv"));
+    vector<vector<float>> matches = this->readCSV(String("../../RwsInterface/stereo/python_output.csv"));
     cloud->points.resize(matches.size());
     float angle = 0.0;
     for (int i=0;i<matches.size();i++)
@@ -687,17 +730,17 @@ float RwsInterface::sparseHeight(int method)
     output: estimated height of the object
     detail: estimate height of the object using multiple points
     */
-    string cmd("python3 ../../RwsInterface/sparseStereo.py ");
+    string cmd("python3 ../../RwsInterface/stereo/sparseStereo.py ");
     cmd.append(to_string(method));
     cmd.append(" ");
     cmd.append(to_string(this->A.at(0).at<double>(0,0)));
     cmd.append(" ");
     cmd.append(to_string(this->H.at(0).at<double>(0,3)-this->H.at(1).at<double>(0,3)));
-    cmd.append(" 1.0 0.33 0.5 1.1");
+    cmd.append(" 1.0 0.2 0.5 1.0 0.0");
     system(cmd.c_str());
 
     PointCloud<point>::Ptr cloud (new PointCloud<point>);
-    vector<vector<float>> matches = this->readCSV(String("../../RwsInterface/python_output.csv"));
+    vector<vector<float>> matches = this->readCSV(String("../../RwsInterface/stereo/python_output.csv"));
     cloud->points.resize(matches.size());
     float angle = 0.0;
     for (int i=0;i<matches.size();i++)

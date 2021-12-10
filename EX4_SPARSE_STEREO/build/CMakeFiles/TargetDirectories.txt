@@ -1,0 +1,4 @@
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX4_SPARSE_STEREO/build/CMakeFiles/rebuild_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX4_SPARSE_STEREO/build/CMakeFiles/edit_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX4_SPARSE_STEREO/build/CMakeFiles/EX4_SPARSE_STEREO.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX4_SPARSE_STEREO/build/CMakeFiles/EX4_SPARSE_STEREO_autogen.dir

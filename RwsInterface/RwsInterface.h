@@ -98,7 +98,6 @@ typedef PointXYZ point;
 ******************************************************************************/
 
 #define MAXTIME 60.
-#define ESTEPSIZE 0.1
 #define GRASPINGOFFSET 0.05
 
 /******************************************************************************
@@ -140,6 +139,8 @@ public:
     Q getHomeQ();
     Q getGoalQ();
     Transform3D<> worldTobase(Transform3D<> H);
+    Transform3D<> baseToworld(Transform3D<> H);
+    float getPoseDiff(Transform3D<> T);
 
     /**************************************************************************
     *                              Motion Control                             *
@@ -151,7 +152,8 @@ public:
     /**************************************************************************
     *                              Path Planning                              *
     **************************************************************************/
-    void planning(Q to, int algo);
+    bool planning(Q to, int algo, float estepsize);
+    float getMovingDistance();
 
     /**************************************************************************
     *                             Gripper Control                             *
@@ -164,54 +166,58 @@ public:
     **************************************************************************/
     Transform3D<>  sparseStereo(int method);
     Mat computeDisparity();
+    void setStereoNoise(float var);
+
+    
 
 private:
 
     /**************************************************************************
     *                            Private variables                            *
     **************************************************************************/
+
+    // -----               application, workcell, and device              -----
+    RobWorkStudioApp* app; // RobWorkStudio Application
+    RobWorkStudio* rwstudio; // RobWorkStudio Object
+    string wc_file; // workcell name
     WorkCell::Ptr wc; // workcell
     SerialDevice::Ptr ur; // UR5 robot
     TreeDevice::Ptr gripper; // wsg50 gripper
+    State state; // workcell state variable
 
-        
-    double cams_f[2] = {0.0}; // camera focal length
-    int cams_w[2] = {0}; // image width
-    int cams_h[2] = {0}; // image height
-
-    int t_delay = 0.0; // delay time
-    int grasping_orien = 0; // grasping orientation (0 = from the top, 1 = from the front)
-    int objectId = 0.0; // object id (not to check collision with this)
-    float grasping_z = 0.0; // grasping height
-    string wc_file; // workcell name
-
-    RobWorkStudioApp* app; // RobWorkStudio Application
-    RobWorkStudio* rwstudio; // RobWorkStudio Object
-
+    // -----                     reference frames                        -----
     Frame* tcp; // tcp frame
-    Frame* urbase; // ur base frame
+    MovableFrame* urbase; // ur base frame
     Frame* tool; // tool frame
     MovableFrame* urref; // ur reference frame
     MovableFrame* goal; // goal frame
     vector<MovableFrame*> object; // vector of object frames
     vector<String> objectName; // vector of object names
     vector<Frame*> cams; // camera pointer
+
+    // -----                     camera parameters                        -----
+    double cams_f[2] = {0.0}; // camera focal length
+    int cams_w[2] = {0}; // image width
+    int cams_h[2] = {0}; // image height
     vector<Mat> K; // camera parameter (K)
     vector<Mat> A; // camera parameter (A)
     vector<Mat> H; // camera parameter (A)
 
-
+    // -----                     control parameters                        -----
+    int t_delay = 0.0; // delay time
+    int grasping_orien = 0; // grasping orientation (0 = from the top, 1 = from the front)
+    int objectId = 0.0; // object id (not to check collision with this)
+    float grasping_z = 0.0; // grasping height
+    float moving_distance = 0.0; // total moving distance
+    float noisevar = 0.0; // image Gaussian variance
     bool objectTermination = false; // remove the object from the workspace
     Transform3D<> objectTerminatePose; // termination pose
     
-    State state; // state variable
-
-    // objects for ik, collision, planning
+    
+    // -----              ik solver and collision detector              -----
     ClosedFormIKSolverUR::Ptr closedFormSovler;
     CollisionDetector::Ptr detector;
     
-
-
 
     /**************************************************************************
     *                             Private Methods                             *

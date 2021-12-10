@@ -2,9 +2,10 @@
 #include <random>
 
 #define WC_FILE "../src/Project_WorkCell/Scene.wc.xml"
-#define PLANNINGALGO 0
+#define PLANNINGALGO 2
+#define ESTEPSIZE 0.3
 
-int randomGenerator()
+int randomGenerator() // random selected object
 {
     random_device r;
     default_random_engine e1(r());
@@ -24,34 +25,36 @@ int main (int argc, char** argv)
         sim.setDelay(10);
         sim.setGraspingOrientation(0);
         sim.setTargetIdx(rand);
-        Mat disp = sim.computeDisparity();
-        for (int i=0;i<3;i++) 
-        {
-            if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
-        }
-        sim.moveUR(0.0,0.0,0.1,0.0,0.0,0.0);
+        for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
+        sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
         sim.update();
+
         // set home
         sim.setFK(sim.getHomeQ());
         sim.setGripper(false);
         sim.update();
 
-        // estimate object pose
+        // calculate disparity map and estimate object pose
+        Mat disp = sim.computeDisparity();
+        imwrite("disparityMap.png",disp);
         Transform3D<> target = sim.sparseStereo(1);
-        imwrite("Disparity Map.png",disp);
         
-        // move
-        sim.planning(sim.getIK(target),PLANNINGALGO);
+        // move to the object 
+        sim.planning(sim.getIK(target),PLANNINGALGO,ESTEPSIZE);
         sim.update();
+        // grasp the object
         sim.setGripper(true);
         sim.update();
-        sim.planning(sim.getGoalQ(),PLANNINGALGO);
-        sim.setGripper(false);
+        // move to place area/location
+        sim.planning(sim.getGoalQ(),PLANNINGALGO,ESTEPSIZE);
         sim.update();
-        sim.delay(3.0);
+        // place the object
+        sim.setGripper(false);
         sim.terminateObject();
         sim.update();
-        sim.planning(sim.getHomeQ(),PLANNINGALGO);
+        sim.delay(2.0);
+        // move to home configuration
+        sim.planning(sim.getHomeQ(),PLANNINGALGO,ESTEPSIZE);
         sim.update();
         sim.delay(2.0);
         app.close();
