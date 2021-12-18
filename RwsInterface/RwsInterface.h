@@ -90,6 +90,8 @@ using namespace cv;
 
 // point cloud
 using namespace pcl;
+using pclPoint = pcl::PointXYZRGB;
+using pclCloud = pcl::PointCloud<pclPoint>;
 
 typedef PointXYZ point;
 
@@ -165,9 +167,12 @@ public:
     *                               Stereo Vision                             *
     **************************************************************************/
     Transform3D<>  sparseStereo(int method);
-    Mat computeDisparity();
+    void denseStereo();
+    Mat computeDisparity(std::string option);
+    Mat reproject3D(Mat disp, Mat Q);
+    Mat defineQ(int img_width, int img_height);
     void setStereoNoise(float var);
-
+    void savePointCloud(std::string filename, cv::Mat points, cv::Mat colors, double max_z);
     
 
 private:

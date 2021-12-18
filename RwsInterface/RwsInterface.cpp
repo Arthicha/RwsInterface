@@ -525,7 +525,47 @@ Transform3D<>  RwsInterface::sparseStereo(int method)
     
 }
 
-Mat RwsInterface::computeDisparity()
+cv::Mat RwsInterface::defineQ(int img_width, int img_height)
+{
+    double cx = -img_width / 2, cy = -img_height / 2;
+    double f = this->A.at(0).at<double>(0,0);
+    double Tx = this->H.at(0).at<double>(0,3)-this->H.at(1).at<double>(0,3);
+    cout<<"f ->>"<<to_string(f)<<endl;
+    cout<<"tx ->>"<<to_string(f)<<endl;
+	cv::Mat Q = cv::Mat::zeros(4, 4, CV_64F);
+	Q.at<double>(0, 0) = 1;
+	Q.at<double>(1, 1) = 1;
+	Q.at<double>(0, 3) = cx;
+	Q.at<double>(1, 3) = cy;
+	Q.at<double>(2, 3) = f;
+	Q.at<double>(3, 2) = -1 / Tx;
+    return Q;
+}
+
+void RwsInterface::savePointCloud(std::string filename, cv::Mat points, cv::Mat colors, double max_z) {
+    pclPoint p_default;
+    pclCloud::Ptr dst(new pclCloud(points.rows, points.cols, p_default));
+    for (size_t i = 0; i < points.rows; i++) {
+        for (size_t j = 0; j < points.cols; j++) {
+            cv::Vec3f xyz = points.at<cv::Vec3f>(i, j);
+            cv::Vec3b bgr = colors.at<cv::Vec3b>(i, j);
+            // Check if points are too far away, if not take them into account
+            if (fabs(xyz[2]) < max_z) {
+                pclPoint pn;
+                pn.x = xyz[2];
+                pn.y = xyz[1];
+                pn.z = xyz[0];
+                pn.r = bgr[2];
+                pn.g = bgr[1];
+                pn.b = bgr[0];
+                dst->at(i, j) = pn;
+            }
+        }
+    }
+    pcl::io::savePCDFileASCII(filename, *dst);
+}
+
+Mat RwsInterface::computeDisparity(std::string option)
 {
     /* 
     function type: public function
@@ -533,28 +573,69 @@ Mat RwsInterface::computeDisparity()
     output: disparity map
     detail: estimate the disparitymap using dense stereo 
     */
-    Mat imgL = this->getImage(1);
-    Mat imgR = this->getImage(0);
-    // Setting parameters for StereoSGBM algorithm
+    cv::Mat imgL = this->getImage(1);
+    cv::Mat imgR = this->getImage(0);
+
+    /*Mat result(Size(imgL.cols, imgL.rows), CV_8UC1);
+    imgL.convertTo(result, CV_8UC1, 1);
+    imgR.convertTo(result, CV_8UC1, 1);*/
+
+    // Setting parameters for StereoSGBM/BM algorithm
     int minDisparity = 0;
-    int numDisparities = 100;
-    int blockSize = 10;
-    int disp12MaxDiff = 1;
-    int uniquenessRatio = 10;
-    int speckleWindowSize = 10;
+    int numDisparities = 10;
+    int blockSize = 4;
+    int disp12MaxDiff = 3;
+    int uniquenessRatio = 5;
+    int speckleWindowSize = 8;
     int speckleRange = 8;
 
-    // Creating an object of StereoSGBM algorithm
-    cv::Ptr<cv::StereoSGBM> stereo = cv::StereoSGBM::create(minDisparity,numDisparities,blockSize, disp12MaxDiff,uniquenessRatio,speckleWindowSize,speckleRange);
-
+    // Creating an object of StereoSGBM and BM algorithm
+    cv::Ptr<cv::StereoSGBM> stereoSGBM = cv::StereoSGBM::create(minDisparity,numDisparities,blockSize, disp12MaxDiff,uniquenessRatio,speckleWindowSize,speckleRange);
+    cv::Ptr<cv::StereoBM> stereoBM = cv::StereoBM::create(numDisparities,blockSize);
+    
     // Calculating disparith using the StereoSGBM algorithm
     cv::Mat disp;
-    stereo->compute(imgL,imgR,disp);
+    if(option == "sgbm")
+    {
+        stereoSGBM->compute(imgL,imgR,disp);
+    }
+    else
+    {
+        stereoBM->compute(imgL,imgR,disp);
+    }
 
     // Normalizing the disparity map for better visualisation
     cv::normalize(disp, disp, 0, 255, cv::NORM_MINMAX, CV_8UC1);
 
     return disp;
+}
+
+void RwsInterface::denseStereo()
+{
+    cv::Mat disp = this->computeDisparity("sgbm");
+
+    cv::Mat imgL = this->getImage(1);
+    cv::Mat imgR = this->getImage(0);
+
+    /*Mat result(Size(imgL.cols, imgL.rows), CV_8UC1);
+    imgL.convertTo(result, CV_8UC1, 1);
+    imgR.convertTo(result, CV_8UC1, 1);*/
+    
+    auto qMat = this->defineQ(imgL.cols, imgL.rows);
+
+    cv::Mat points = this->reproject3D(disp, qMat);
+
+    cv::Mat colors = imgL;
+
+    double z_threshold = 500;
+    this->savePointCloud("cloud.pcd", points, colors, z_threshold);
+}
+
+Mat RwsInterface::reproject3D(Mat disp, Mat Q)
+{
+    cv::Mat points;
+    cv::reprojectImageTo3D(disp, points, Q, true);
+    return points;
 }
 
 void RwsInterface::setStereoNoise(float var)
