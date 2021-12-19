@@ -30,10 +30,11 @@ RwsInterface::RwsInterface(const string &_wc_file)
     this->gripper = this->wc->findDevice<TreeDevice>("WSG50");
     this->cams.push_back(this->wc->findFrame ("Camera_Right"));
     this->cams.push_back(this->wc->findFrame ("Camera_Left"));
+    this->cams.push_back(this->wc->findFrame ("Scanner25D"));
 
     this->state = this->wc->getDefaultState();
 
-    for(int i =0;i<2;i++) // camera parameter inilization
+    for(int i =0;i<3;i++) // camera parameter inilization
     {
         this->K.push_back(Mat::zeros(3,3,CV_64F));
         this->A.push_back(Mat::zeros(3,4,CV_64F));
@@ -124,7 +125,16 @@ Mat RwsInterface::getImage(int camNum)
     detail: get image from a specific camera
     */
     const PropertyMap& properties = this->cams.at(camNum)->getPropertyMap ();
-    const string parameters = properties.get<string>("Camera");
+    string parameters;
+    if(camNum != 2)
+    {
+        parameters = properties.get<string>("Camera");
+    }
+    else
+    {
+        parameters = properties.get<string>("Scanner25D");
+    }
+     
     istringstream iss (parameters, istringstream::in);
     double fovy;
     int width;
@@ -444,7 +454,197 @@ bool RwsInterface::planning(Q to, int algo, float estepsize)
         diff = path_j-path_i;
         this->moving_distance += diff.norm2();
         path_i = path_j;
+    }
+    return true;
+}
 
+bool RwsInterface::linearPlanning(Q to)
+{
+    /* 
+    function type: public function
+    input: target robot configuration (Q) and planning algorithm id
+    output: none
+    detail: perform path planning in configurtion space and update the simulation until the robot reaches the target configuration
+    */
+
+    // initializer
+    QPath path;
+    Q from = this->ur->getQ(this->state);
+    Q first(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
+    //Here goes the target
+    Q second(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
+    Q third(-0.096, -1.571, -2.661, -0.514, -0.064, 0.031);
+    Q forth(-0.096, -1.987, -2.597, -0.514, -0.031, -1.186);
+    Q fifth(-0.506, -2.05, -2.139, -2.024, -0.532, -0.066);
+    //Here goes the ungrasping
+    Q sixth(-0.098, -1.846, -2.429, -1.725, -0.128, -0.287);
+    Q seventh(-0.115, -1.629, -2.743, -1.658, -0.143, -0.257);
+    Q eight(1.219, -1.629, -2.743, -1.658, -0.143, -0.257);
+    Q nineth(2.79, -1.629, -2.743, -1.658, -0.143, -0.257);
+    Q tenth(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(first, from, 5.0);
+    //grasping
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, second, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(second, third, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(third, forth, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(forth, fifth, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator6 = rw::trajectory::LinearInterpolator<rw::math::Q>(fifth, to, 5.0);
+    //ungrasping
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator7 = rw::trajectory::LinearInterpolator<rw::math::Q>(to, sixth, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator8 = rw::trajectory::LinearInterpolator<rw::math::Q>(sixth, seventh, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator9 = rw::trajectory::LinearInterpolator<rw::math::Q>(seventh, eight, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator10 = rw::trajectory::LinearInterpolator<rw::math::Q>(eight, nineth, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator11 = rw::trajectory::LinearInterpolator<rw::math::Q>(nineth, tenth, 5.0);
+
+    Q path_i = from;
+    Q path_j = from;
+    Q diff = from;
+    this->moving_distance = 0.0;
+    for(int i = 1; i <= 11; i++)
+    {
+        if(i == 1)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator1.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 2)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator2.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 3)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator3.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 4)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator4.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 5)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator5.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 6)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator6.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 7)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator7.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 8)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator8.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 9)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator9.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 10)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator10.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 11)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator11.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
     }
     return true;
 }
@@ -531,7 +731,7 @@ cv::Mat RwsInterface::defineQ(int img_width, int img_height)
     double f = this->A.at(0).at<double>(0,0);
     double Tx = this->H.at(0).at<double>(0,3)-this->H.at(1).at<double>(0,3);
     cout<<"f ->>"<<to_string(f)<<endl;
-    cout<<"tx ->>"<<to_string(f)<<endl;
+    cout<<"tx ->>"<<to_string(Tx)<<endl;
 	cv::Mat Q = cv::Mat::zeros(4, 4, CV_64F);
 	Q.at<double>(0, 0) = 1;
 	Q.at<double>(1, 1) = 1;
@@ -576,17 +776,48 @@ Mat RwsInterface::computeDisparity(std::string option)
     cv::Mat imgL = this->getImage(1);
     cv::Mat imgR = this->getImage(0);
 
+    Mat tmpR = imread("left_template.png");
+    Mat tmpL = imread("right_template.png");
+
+    cv::Mat nimgL = imgL;
+    cv::Mat nimgR = imgR;
+
+    for(int i = 0; i< imgL.rows; i++)
+    {
+        for(int j = 0; j< imgL.cols; j++)
+        {
+            if(imgL.at<Vec3b>(i,j)[0] == tmpL.at<Vec3b>(i,j)[0] && imgL.at<Vec3b>(i,j)[1] == tmpL.at<Vec3b>(i,j)[1] && imgL.at<Vec3b>(i,j)[2] == tmpL.at<Vec3b>(i,j)[2])
+            {
+                nimgL.at<Vec3b>(i,j)[0] = 0;
+                nimgL.at<Vec3b>(i,j)[1] = 0;
+                nimgL.at<Vec3b>(i,j)[2] = 0;
+            }
+            if(imgR.at<Vec3b>(i,j)[0] == tmpR.at<Vec3b>(i,j)[0] && imgR.at<Vec3b>(i,j)[1] == tmpR.at<Vec3b>(i,j)[1] && imgR.at<Vec3b>(i,j)[2] == tmpR.at<Vec3b>(i,j)[2])
+            {
+                nimgR.at<Vec3b>(i,j)[0] = 254;
+                nimgR.at<Vec3b>(i,j)[1] = 254;
+                nimgR.at<Vec3b>(i,j)[2] = 254;
+            }
+        }
+    }
+
     /*Mat result(Size(imgL.cols, imgL.rows), CV_8UC1);
     imgL.convertTo(result, CV_8UC1, 1);
     imgR.convertTo(result, CV_8UC1, 1);*/
 
+    imwrite("corrL.png",nimgL);
+    imwrite("corrR.png",nimgR);
+
+    imgL = nimgR;
+    imgR = nimgL;
+
     // Setting parameters for StereoSGBM/BM algorithm
     int minDisparity = 0;
     int numDisparities = 10;
-    int blockSize = 4;
+    int blockSize = 5;
     int disp12MaxDiff = 3;
     int uniquenessRatio = 5;
-    int speckleWindowSize = 8;
+    int speckleWindowSize = 10;
     int speckleRange = 8;
 
     // Creating an object of StereoSGBM and BM algorithm
@@ -614,8 +845,13 @@ void RwsInterface::denseStereo()
 {
     cv::Mat disp = this->computeDisparity("sgbm");
 
-    cv::Mat imgL = this->getImage(1);
-    cv::Mat imgR = this->getImage(0);
+    cv::Mat imgL = this->getImage(0);
+    cv::Mat imgR = this->getImage(1);
+    cv::Mat depthSensor = this->getImage(2);
+    /*Mat result(Size(imgL.cols, imgL.rows), CV_16UC1);
+    depthSensor.convertTo(result, CV_8UC1, 1);*/
+
+    //cv::imshow(depthSensor);
 
     /*Mat result(Size(imgL.cols, imgL.rows), CV_8UC1);
     imgL.convertTo(result, CV_8UC1, 1);
@@ -624,6 +860,8 @@ void RwsInterface::denseStereo()
     auto qMat = this->defineQ(imgL.cols, imgL.rows);
 
     cv::Mat points = this->reproject3D(disp, qMat);
+
+    imshow("test", depthSensor);
 
     cv::Mat colors = imgL;
 

@@ -155,6 +155,7 @@ public:
     *                              Path Planning                              *
     **************************************************************************/
     bool planning(Q to, int algo, float estepsize);
+    bool linearPlanning(Q to);
     float getMovingDistance();
 
     /**************************************************************************
@@ -201,9 +202,9 @@ private:
     vector<Frame*> cams; // camera pointer
 
     // -----                     camera parameters                        -----
-    double cams_f[2] = {0.0}; // camera focal length
-    int cams_w[2] = {0}; // image width
-    int cams_h[2] = {0}; // image height
+    double cams_f[3] = {0.0}; // camera focal length
+    int cams_w[3] = {0}; // image width
+    int cams_h[3] = {0}; // image height
     vector<Mat> K; // camera parameter (K)
     vector<Mat> A; // camera parameter (A)
     vector<Mat> H; // camera parameter (A)

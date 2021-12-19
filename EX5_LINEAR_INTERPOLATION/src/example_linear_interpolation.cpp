@@ -25,28 +25,28 @@ int main (int argc, char** argv)
         sim.setDelay(10);
         sim.setGraspingOrientation(0);
         sim.setTargetIdx(rand);
-        /*for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
-        sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
-        sim.update();*/
+        //for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
+        //sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
+        sim.update();
 
         // set home
         sim.setFK(sim.getHomeQ());
         sim.setGripper(false);
         sim.update();
 
-        // calculate disparity map and estimate object pose
+        /* calculate disparity map and estimate object pose
         cv::Mat disp = sim.computeDisparity("sgbm");
         sim.denseStereo();
         Mat result(Size(disp.cols, disp.rows), CV_8UC1);
         disp.convertTo(result, CV_8UC1, 1);
         cv::imshow("Stereo", disp);
         cv::imwrite("disparity.png", disp);
-        //Transform3D<> target = sim.sparseStereo(1);
+        //Transform3D<> target = sim.sparseStereo(1);*/
         
-        /* move to the object 
-        sim.planning(sim.getIK(target),PLANNINGALGO,ESTEPSIZE);
+        // move to the object 
+        sim.linearPlanning(sim.getGoalQ());
         sim.update();
-        // grasp the object
+        /* grasp the object
         sim.setGripper(true);
         sim.update();
         // move to place area/location
@@ -62,6 +62,11 @@ int main (int argc, char** argv)
         sim.update();
         sim.delay(2.0);
         */
+        bool a;
+        while(true)
+        {
+            a = false;
+        }
         app.close();
     }RWS_END()
 
