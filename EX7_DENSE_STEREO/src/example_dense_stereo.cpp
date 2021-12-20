@@ -21,12 +21,13 @@ int main (int argc, char** argv)
     RWS_START (app)
     {
         // setup
+
         sim.setup(&app);
-        //sim.setDelay(10);
-        /*sim.setGraspingOrientation(0);
-        sim.setTargetIdx(rand);
+        sim.setDelay(10);
+        sim.setGraspingOrientation(0);
+        /*sim.setTargetIdx(rand);
         for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
-        sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
+        
         sim.update();
 
         // set home
@@ -35,15 +36,18 @@ int main (int argc, char** argv)
         sim.update();*/
 
         // calculate disparity map and estimate object pose
+        sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
+        sim.update();
         sim.getImage(0);
         sim.getImage(1);
         sim.getImage(2);
 
         Transform3D<> result = sim.getPose(0);
+        
         cout<<result<<endl;
 
         Q q = sim.getIK(result);
- 
+        cout << q << endl;
         sim.setFK(q);
         sim.update();
         

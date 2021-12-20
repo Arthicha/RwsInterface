@@ -278,6 +278,11 @@ Transform3D<> RwsInterface::getObjectPose(int idx)
     return Kinematics::frameTframe(this->urbase, this->object[idx], this->state);
 }
 
+Transform3D<> RwsInterface::getTCP()
+{
+    return Kinematics::frameTframe(this->urbase, this->tool, this->state);
+}
+
 Transform3D<> RwsInterface::getFK(Q q)
 {
     /* 
@@ -312,6 +317,7 @@ Q RwsInterface::getIK(Transform3D<> frameBaseTGoal)
     Q q_best(6,-10.0,-10.0,-10.0,-10.0,-10.0,-10.0);
     float dist_best = 1e10;
     float diff = 0.0;
+    cout << "size   "<< qs.size() << endl;
     for (uint i=0;i<qs.size();i++)
     {
         if(not this->checkUrCollision(qs.at(i))) // collision test
@@ -331,7 +337,7 @@ Q RwsInterface::getIK(Transform3D<> frameBaseTGoal)
     return q_best;
 }
 
-void RwsInterface::setFK(Q joint_angle)
+bool RwsInterface::setFK(Q joint_angle)
 {
     /* 
     function type: public function
@@ -340,6 +346,7 @@ void RwsInterface::setFK(Q joint_angle)
     detail: move the robot to a specific configuration according to the input
     */
     this->ur->setQ(joint_angle,this->state);
+    return this->checkUrCollision(joint_angle);
 }
 
 bool RwsInterface::setIK(Transform3D<> Ttarget)
@@ -974,15 +981,16 @@ void RwsInterface::setStereoNoise(float var)
 
 Transform3D<> RwsInterface::getPose(int iterations)
 {
-
     if(iterations == 0)
     {
-        rw::math::Vector3D<> pos = rw::math::Vector3D<>(0.00935333, 0.479046, 0.13872);
-        rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        rw::math::Vector3D<> pos = rw::math::Vector3D<>(0.00935333, 0.479046, 0.33872);
+        //rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        Rotation3D<> rotm(-0.447,-0.89,0,-0.82,0.41,0.37,-0.33,0.169,-0.92);
         
         Transform3D<> Tobj(pos, rotm);
+        //Transform3D<> Tbasecam = Kinematics::frameTframe(this->urbase, this->cams.at(2), this->state);
 
-        return Tobj;
+        return Tobj;//Tbasecam*Tobj*Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(0.0,0.0,3.14/2)));
     }
 
     // Load
@@ -1116,7 +1124,8 @@ Transform3D<> RwsInterface::getPose(int iterations)
         //return Tobj;
 
         Transform3D<> Tbasecam = Kinematics::frameTframe(this->urbase, this->cams.at(2), this->state);
-        return Tbasecam*Tobj;
+
+        return Tbasecam*Tobj*Transform3D<>(Vector3D<>(0,0,0),Rotation3D<>(RPY<>(0.0,0.0,3.14/2)));
     }
 }
 
@@ -1185,8 +1194,6 @@ Matrix4f RwsInterface::getPoseLoc()
     v.addPointCloud<PointNormal>(object_aligned, PointCloudColorHandlerCustom<PointNormal>(object_aligned, 0, 255, 0), "object_aligned");
     v.addPointCloud<PointNormal>(scene, PointCloudColorHandlerCustom<PointNormal>(scene, 255, 0, 0),"scene");
     v.spin();
-
-
 
     // Print pose
     return pose;

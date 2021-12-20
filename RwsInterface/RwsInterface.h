@@ -151,8 +151,9 @@ public:
     **************************************************************************/
     Transform3D<> getObjectPose(int idx);
     Transform3D<> getFK(Q q);
+    Transform3D<> getTCP();
     Q getIK(Transform3D<> frameBaseTGoal);
-    void setFK(Q joint_angle);
+    bool setFK(Q joint_angle);
     bool setIK(Transform3D<> Ttarget);
     Q getHomeQ();
     Q getGoalQ();
