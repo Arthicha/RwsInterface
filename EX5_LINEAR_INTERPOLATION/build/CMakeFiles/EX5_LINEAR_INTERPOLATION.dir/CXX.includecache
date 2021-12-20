@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/student/RoViProject/RwsInterface/RwsInterface.cpp
-RwsInterface.h
-/home/student/RoViProject/RwsInterface/RwsInterface.h
-
-/home/student/RoViProject/RwsInterface/RwsInterface.h
+../../RwsInterface/RwsInterface.h
 rw/rw.hpp
 -
 rw/core/PropertyMap.hpp
@@ -64,6 +60,12 @@ pcl/io/pcd_io.h
 pcl/point_types.h
 -
 pcl/visualization/pcl_visualizer.h
+-
+
+/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp
+RwsInterface.h
+/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/RwsInterface.h
+random
 -
 
 /home/student/RobWork/RobWork/src/RobWorkConfig.hpp

@@ -35,15 +35,18 @@ int main (int argc, char** argv)
         sim.update();*/
 
         // calculate disparity map and estimate object pose
-        cv::Mat disp = sim.computeDisparity("sgbm");
-        sim.denseStereo();
-        Mat result(Size(disp.cols, disp.rows), CV_8UC1);
-        disp.convertTo(result, CV_8UC1, 1);
-        cv::imshow("Stereo", disp);
-        cv::imwrite("disparity.png", disp);
-        cv::imwrite("depthSensor.png", sim.getImage(2));
-        cv::imwrite("left.png", sim.getImage(0));
-        cv::imwrite("right.png", sim.getImage(1));
+        sim.getImage(0);
+        sim.getImage(2);
+        sim.getImage(2);
+
+        Matrix4f pose = sim.getPose(10000);
+
+
+
+        cout << "Got the following pose:" << endl << pose << endl;
+        //Transform3D<> target = Transform3D(pose);
+
+
         //Transform3D<> target = sim.sparseStereo(1);
         
         /* move to the object 

@@ -19,6 +19,7 @@ Email: arsri21@student.sdu.dk
 #include <rw/kinematics/State.hpp>
 #include <rw/loaders/WorkCellLoader.hpp>
 #include <rwlibs/simulation/GLFrameGrabber.hpp>
+#include <rwlibs/simulation/GLFrameGrabber25D.hpp>
 #include <rwlibs/simulation/SimulatedCamera.hpp>
 #include <rwlibs/pathplanners/rrt/RRTPlanner.hpp>
 #include <rwlibs/pathplanners/rrt/RRTQToQPlanner.hpp>
@@ -51,8 +52,15 @@ Email: arsri21@student.sdu.dk
 // point cloud
 #undef foreach
 #include <boost/foreach.hpp>
-#include <pcl/io/pcd_io.h>
 #include <pcl/point_types.h>
+#include <pcl/point_cloud.h>
+#include <pcl/common/random.h>
+#include <pcl/common/time.h>
+#include <pcl/features/normal_3d.h>
+#include <pcl/features/spin_image.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/registration/correspondence_rejection_sample_consensus.h>
+#include <pcl/registration/transformation_estimation_svd.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
 /******************************************************************************
@@ -90,10 +98,18 @@ using namespace cv;
 
 // point cloud
 using namespace pcl;
+using namespace pcl::common;
+using namespace pcl::io;
+using namespace pcl::registration;
+using namespace pcl::search;
+using namespace pcl::visualization;
+using namespace Eigen;
 using pclPoint = pcl::PointXYZRGB;
 using pclCloud = pcl::PointCloud<pclPoint>;
 
 typedef PointXYZ point;
+typedef PointNormal PointT;
+typedef Histogram<153> FeatureT;
 
 /******************************************************************************
 *                                     Define                                  *
@@ -174,7 +190,7 @@ public:
     Mat defineQ(int img_width, int img_height);
     void setStereoNoise(float var);
     void savePointCloud(std::string filename, cv::Mat points, cv::Mat colors, double max_z);
-    
+    Matrix4f getPose(int iterations);
 
 private:
 
@@ -228,6 +244,9 @@ private:
     /**************************************************************************
     *                             Private Methods                             *
     **************************************************************************/
+
+    void nearest_feature(const FeatureT& query, const PointCloud<FeatureT>& target, int &idx, float &distsq);
+    inline float dist_sq(const FeatureT& query, const FeatureT& target);
 
     // checking
     bool checkUrCollision(Q q);

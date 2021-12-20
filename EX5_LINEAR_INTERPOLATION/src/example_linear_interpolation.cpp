@@ -40,17 +40,18 @@ int main (int argc, char** argv)
         Mat result(Size(disp.cols, disp.rows), CV_8UC1);
         disp.convertTo(result, CV_8UC1, 1);
         cv::imshow("Stereo", disp);
-        cv::imwrite("disparity.png", disp);
-        //Transform3D<> target = sim.sparseStereo(1);*/
+        cv::imwrite("disparity.png", disp);*/
+        //Transform3D<> target = sim.sparseStereo(1);
         
         // move to the object 
-        sim.linearPlanning(sim.getGoalQ());
+        Transform3D target = Transform3D(Vector3D(0, 0.4725, 0.11), Rotation3D(6.12323e-17, 6.12323e-17, -1, -1, 3.7494e-33, -6.12323e-17, -0, 1, 6.12323e-17));
+        sim.linearPlanning(target);
         sim.update();
-        /* grasp the object
+        // grasp the object
         sim.setGripper(true);
         sim.update();
         // move to place area/location
-        sim.planning(sim.getGoalQ(),PLANNINGALGO,ESTEPSIZE);
+        sim.linearPlanning(sim.getGoalQ());
         sim.update();
         // place the object
         sim.setGripper(false);
@@ -58,10 +59,9 @@ int main (int argc, char** argv)
         sim.update();
         sim.delay(2.0);
         // move to home configuration
-        sim.planning(sim.getHomeQ(),PLANNINGALGO,ESTEPSIZE);
+        sim.linearPlanning(sim.getHomeQ());
         sim.update();
         sim.delay(2.0);
-        */
         bool a;
         while(true)
         {

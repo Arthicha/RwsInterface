@@ -1,0 +1,4 @@
+/home/student/RoViProject/pose_pcd_obtainer/build/CMakeFiles/rebuild_cache.dir
+/home/student/RoViProject/pose_pcd_obtainer/build/CMakeFiles/edit_cache.dir
+/home/student/RoViProject/pose_pcd_obtainer/build/CMakeFiles/3DScanner.dir
+/home/student/RoViProject/pose_pcd_obtainer/build/CMakeFiles/3DScanner_autogen.dir

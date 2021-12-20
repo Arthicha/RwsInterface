@@ -153,6 +153,64 @@ Mat RwsInterface::getImage(int camNum)
     this->A.at(camNum).at<double>(2,2) = 1.0;
     // update H matrix
     this->H.at(camNum) = this->rwH2cvH(Kinematics::frameTframe(this->wc->getWorldFrame(), this->cams.at(camNum), this->state));
+    
+    if(camNum == 2)
+    {
+        auto framegrabber25D = new rwlibs::simulation::GLFrameGrabber25D(width,height,fovy);
+        rw::graphics::SceneViewer::Ptr gldrawer = this->rwstudio->getView ()->getSceneViewer();
+        framegrabber25D->init(gldrawer);
+        framegrabber25D->grab(this->cams.at(camNum), this->state);
+        const rw::geometry::PointCloud* img = &(framegrabber25D->getImage());
+        int counter = 0;
+        for(const auto &p_tmp : img->getData())
+        {
+            rw::math::Vector3D<float> p = p_tmp;
+            if(p(2) > -1.38 && p(1) > -0.48)
+            {
+                counter++;
+            }
+        }
+        std::ofstream output("scanner25D.pcd");
+        output << "# .PCD v.5 - Point Cloud Data file format\n";
+        output << "FIELDS x y z\n";
+        output << "SIZE 4 4 4\n";
+        output << "TYPE F F F\n";
+        output << "WIDTH " << (img->getWidth()/8 - 4) << "\n";
+        output << "HEIGHT " << (img->getHeight()/8 - 4) << "\n";
+        output << "POINTS " << ((img->getWidth()/8 - 4)*(img->getHeight()/8 - 4)) << "\n";
+        output << "DATA ascii\n";
+        for(const auto &p_tmp : img->getData())
+        {
+            rw::math::Vector3D<float> p = p_tmp;
+            if(p(2) > -1.38 && p(1) > -0.28)
+            {
+                output << p(0) << " " << p(1) << " " << p(2) << "\n";
+            }
+        }
+        
+        for(int i=1; i<=((img->getWidth()/8 - 4)*(img->getHeight()/8 - 4) - counter); i++)
+        {
+            output << 0 << " " << 0 << " " << 0 << "\n";
+        }/*
+        std::ofstream output("scanner25D.pcd");
+        output << "# .PCD v.5 - Point Cloud Data file format\n";
+        output << "FIELDS x y z\n";
+        output << "SIZE 4 4 4\n";
+        output << "TYPE F F F\n";
+        output << "WIDTH " << img->getWidth() << "\n";
+        output << "HEIGHT " << img->getHeight() << "\n";
+        output << "POINTS " << img->getData().size() << "\n";
+        output << "DATA ascii\n";
+        for(const auto &p_tmp : img->getData())
+        {
+            rw::math::Vector3D<float> p = p_tmp;
+            output << p(0) << " " << p(1) << " " << p(2) << "\n";
+        }*/
+        output.close();
+    }
+
+        
+    Mat result;
     const SceneViewer::Ptr gldrawer = this->rwstudio->getView ()->getSceneViewer();
     const GLFrameGrabber::Ptr framegrabber = ownedPtr (new GLFrameGrabber (width, height, fovy));
     framegrabber->init (gldrawer);
@@ -160,8 +218,9 @@ Mat RwsInterface::getImage(int camNum)
     Image* rw_image = &(framegrabber->getImage());
     Mat img(rw_image->getHeight(),rw_image->getWidth(), CV_8UC3);
     img.data = (uchar*)rw_image->getImageData();
-    Mat result;
     cvtColor( img, result, COLOR_RGB2BGR );
+
+    
     return result;
 }
 
@@ -474,17 +533,18 @@ bool RwsInterface::linearPlanning(Q to)
     //Here goes the target
     Q second(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
     Q third(-0.096, -1.571, -2.661, -0.514, -0.064, 0.031);
-    Q forth(-0.096, -1.987, -2.597, -0.514, -0.031, -1.186);
-    Q fifth(-0.506, -2.05, -2.139, -2.024, -0.532, -0.066);
+    Q forth(-0.0959757, -1.94218, -2.59649, -0.559186, -0.030997, -1.18614);
+    Q fifth(-0.506006, -2.02601, -2.13599, -2.05101, -0.531994, -0.0659909);
     //Here goes the ungrasping
-    Q sixth(-0.098, -1.846, -2.429, -1.725, -0.128, -0.287);
+    Q sixth(-0.0980177, -1.81382, -2.42362, -1.76263, -0.12802, -0.286932);
     Q seventh(-0.115, -1.629, -2.743, -1.658, -0.143, -0.257);
     Q eight(1.219, -1.629, -2.743, -1.658, -0.143, -0.257);
     Q nineth(2.79, -1.629, -2.743, -1.658, -0.143, -0.257);
     Q tenth(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(first, from, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, to, 5.0);
     //grasping
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, second, 5.0);
+    this->setGripper(true);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(to, second, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(second, third, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(third, forth, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(forth, fifth, 5.0);
@@ -805,20 +865,23 @@ Mat RwsInterface::computeDisparity(std::string option)
     imgL.convertTo(result, CV_8UC1, 1);
     imgR.convertTo(result, CV_8UC1, 1);*/
 
+    cv::cvtColor(nimgL, nimgL, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(nimgR, nimgR, cv::COLOR_BGR2GRAY);
+
     imwrite("corrL.png",nimgL);
     imwrite("corrR.png",nimgR);
 
-    imgL = nimgR;
-    imgR = nimgL;
+    //imgL = nimgL;
+    //imgR = nimgR;
 
     // Setting parameters for StereoSGBM/BM algorithm
     int minDisparity = 0;
-    int numDisparities = 10;
-    int blockSize = 5;
-    int disp12MaxDiff = 3;
+    int numDisparities = 16;
+    int blockSize = 6;
+    int disp12MaxDiff = 5;
     int uniquenessRatio = 5;
     int speckleWindowSize = 10;
-    int speckleRange = 8;
+    int speckleRange = 2;
 
     // Creating an object of StereoSGBM and BM algorithm
     cv::Ptr<cv::StereoSGBM> stereoSGBM = cv::StereoSGBM::create(minDisparity,numDisparities,blockSize, disp12MaxDiff,uniquenessRatio,speckleWindowSize,speckleRange);
@@ -881,10 +944,167 @@ void RwsInterface::setStereoNoise(float var)
     this->noisevar = var;
 }
 
+Matrix4f RwsInterface::getPose(int iterations)
+{
+
+    if(iterations == 0)
+    {
+        iterations = 10000;
+    }
+
+    // Load
+    PointCloud<PointT>::Ptr object(new PointCloud<PointT>);
+    PointCloud<PointT>::Ptr scene(new PointCloud<PointT>);
+    loadPCDFile("bottle_origin.pcd", *object);
+    loadPCDFile("scanner25D.pcd", *scene);
+
+
+    // Compute surface normals
+    NormalEstimation<PointT,PointT> ne;
+    ne.setKSearch(10);
+    ne.setInputCloud(object);
+    ne.compute(*object);
+    ne.setInputCloud(scene);
+    ne.compute(*scene);
+
+
+    // Compute shape features
+    PointCloud<FeatureT>::Ptr object_features(new PointCloud<FeatureT>);
+    PointCloud<FeatureT>::Ptr scene_features(new PointCloud<FeatureT>);
+    
+    SpinImageEstimation<PointT,PointT,FeatureT> spin;
+    spin.setRadiusSearch(0.05);
+    
+    spin.setInputCloud(object);
+    spin.setInputNormals(object);
+    spin.compute(*object_features);
+    
+    spin.setInputCloud(scene);
+    spin.setInputNormals(scene);
+    spin.compute(*scene_features);
+
+
+    // Find feature matches
+    Correspondences corr(object_features->size());
+    for(size_t i = 0; i < object_features->size(); ++i) 
+    {
+        corr[i].index_query = i;
+        this->nearest_feature(object_features->points[i], *scene_features, corr[i].index_match, corr[i].distance);
+    }
+
+
+    // Create a k-d tree for scene
+    search::KdTree<PointNormal> tree;
+    tree.setInputCloud(scene);
+
+
+    // Set RANSAC parameters
+    const size_t iter = iterations;
+    const float thressq = 0.01 * 0.01;
+
+    // Start RANSAC
+    Matrix4f pose = Matrix4f::Identity();
+    PointCloud<PointNormal>::Ptr object_aligned(new PointCloud<PointNormal>);
+    float penalty = FLT_MAX;
+    {
+        cout << "Starting RANSAC..." << endl;
+        UniformGenerator<int> gen(0, corr.size() - 1);
+        for(size_t i = 0; i < iter; ++i) {
+            if((i + 1) % 100 == 0)
+                cout << "\t" << i+1 << endl;
+            // Sample 3 random correspondences
+            vector<int> idxobj(3);
+            vector<int> idxscn(3);
+            for(int j = 0; j < 3; ++j) {
+                const int idx = gen.run();
+                idxobj[j] = corr[idx].index_query;
+                idxscn[j] = corr[idx].index_match;
+            }
+            
+            // Estimate transformation
+            Matrix4f T;
+            TransformationEstimationSVD<PointNormal,PointNormal> est;
+            est.estimateRigidTransformation(*object, idxobj, *scene, idxscn, T);
+            
+            // Apply pose
+            transformPointCloud(*object, *object_aligned, T);
+            
+            // Validate
+            vector<vector<int> > idx;
+            vector<vector<float> > distsq;
+            tree.nearestKSearch(*object_aligned, std::vector<int>(), 1, idx, distsq);
+            
+            // Compute inliers and RMSE
+            size_t inliers = 0;
+            float rmse = 0;
+            for(size_t j = 0; j < distsq.size(); ++j)
+                if(distsq[j][0] <= thressq)
+                    ++inliers, rmse += distsq[j][0];
+            rmse = sqrtf(rmse / inliers);
+            
+            // Evaluate a penalty function
+            const float outlier_rate = 1.0f - float(inliers) / object->size();
+            //const float penaltyi = rmse;
+            const float penaltyi = outlier_rate;
+            
+            // Update result
+            if(penaltyi < penalty) {
+                cout << "\t--> Got a new model with " << inliers << " inliers!" << endl;
+                penalty = penaltyi;
+                pose = T;
+            }
+        }
+        
+        transformPointCloud(*object, *object_aligned, pose);
+        
+
+        // Compute inliers and RMSE
+        vector<vector<int> > idx;
+        vector<vector<float> > distsq;
+        tree.nearestKSearch(*object_aligned, std::vector<int>(), 1, idx, distsq);
+        size_t inliers = 0;
+        float rmse = 0;
+        for(size_t i = 0; i < distsq.size(); ++i)
+            if(distsq[i][0] <= thressq)
+                ++inliers, rmse += distsq[i][0];
+        rmse = sqrtf(rmse / inliers);
+    
+        // Show result
+        PCLVisualizer v("After global alignment");
+        v.addPointCloud<PointT>(object_aligned, PointCloudColorHandlerCustom<PointT>(object_aligned, 0, 255, 0), "object_aligned");
+        v.addPointCloud<PointT>(scene, PointCloudColorHandlerCustom<PointT>(scene, 255, 0, 0),"scene");
+        v.spin();
+
+        // Print pose
+        return pose;
+    }
+}
 
 /**************************************************************************
 *                             Private Methods                             *
 **************************************************************************/
+
+void RwsInterface::nearest_feature(const FeatureT& query, const PointCloud<FeatureT>& target, int &idx, float &distsq) {
+    idx = 0;
+    distsq = this->dist_sq(query, target[0]);
+    for(size_t i = 1; i < target.size(); ++i) {
+        const float disti = this->dist_sq(query, target[i]);
+        if(disti < distsq) {
+            idx = i;
+            distsq = disti;
+        }
+    }
+}
+
+inline float RwsInterface::dist_sq(const FeatureT& query, const FeatureT& target) {
+    float result = 0.0;
+    for(int i = 0; i < FeatureT::descriptorSize(); ++i) {
+        const float diff = reinterpret_cast<const float*>(&query)[i] - reinterpret_cast<const float*>(&target)[i];
+        result += diff * diff;
+    }
+    
+    return result;
+}
 
 bool RwsInterface::checkUrCollision(Q q)
 {
