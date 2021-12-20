@@ -33,18 +33,9 @@ int main (int argc, char** argv)
         sim.setFK(sim.getHomeQ());
         sim.setGripper(false);
         sim.update();
-
-        /* calculate disparity map and estimate object pose
-        cv::Mat disp = sim.computeDisparity("sgbm");
-        sim.denseStereo();
-        Mat result(Size(disp.cols, disp.rows), CV_8UC1);
-        disp.convertTo(result, CV_8UC1, 1);
-        cv::imshow("Stereo", disp);
-        cv::imwrite("disparity.png", disp);*/
-        //Transform3D<> target = sim.sparseStereo(1);
         
         // move to the object 
-        Transform3D target = Transform3D(Vector3D(0, 0.4725, 0.11), Rotation3D(6.12323e-17, 6.12323e-17, -1, -1, 3.7494e-33, -6.12323e-17, -0, 1, 6.12323e-17));
+        Q target = ;
         sim.linearPlanning(target);
         sim.update();
         // grasp the object

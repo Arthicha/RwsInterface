@@ -190,7 +190,9 @@ public:
     Mat defineQ(int img_width, int img_height);
     void setStereoNoise(float var);
     void savePointCloud(std::string filename, cv::Mat points, cv::Mat colors, double max_z);
-    Matrix4f getPose(int iterations);
+    Transform3D<> getPose(int iterations);
+    Matrix4f getPoseLoc();
+    Transform3D<> matrix2Transform(const Matrix4f matrix);
 
 private:
 

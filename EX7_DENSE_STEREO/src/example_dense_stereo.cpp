@@ -36,14 +36,24 @@ int main (int argc, char** argv)
 
         // calculate disparity map and estimate object pose
         sim.getImage(0);
+        sim.getImage(1);
         sim.getImage(2);
-        sim.getImage(2);
 
-        Matrix4f pose = sim.getPose(10000);
+        Transform3D<> result = sim.getPose(0);
+        cout<<result<<endl;
 
+        Q q = sim.getIK(result);
+ 
+        sim.setFK(q);
+        sim.update();
+        
 
+        while(true)
+        {
+            bool a = false;
+        }
+        
 
-        cout << "Got the following pose:" << endl << pose << endl;
         //Transform3D<> target = Transform3D(pose);
 
 

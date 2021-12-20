@@ -293,7 +293,6 @@ Transform3D<> RwsInterface::getFK(Q q)
     return frameBaseTGoal;
 }
 
-
 Q RwsInterface::getIK(Transform3D<> frameBaseTGoal)
 {
     /* 
@@ -517,50 +516,53 @@ bool RwsInterface::planning(Q to, int algo, float estepsize)
     return true;
 }
 
-bool RwsInterface::linearPlanning(Q to)
+bool RwsInterface::linearPlanning(Q target)
 {
     /* 
     function type: public function
     input: target robot configuration (Q) and planning algorithm id
     output: none
-    detail: perform path planning in configurtion space and update the simulation until the robot reaches the target configuration
+    detail: perform linear planning  and update the simulation until the robot reaches the targets
     */
 
     // initializer
-    QPath path;
     Q from = this->ur->getQ(this->state);
-    Q first(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
-    //Here goes the target
-    Q second(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
-    Q third(-0.096, -1.571, -2.661, -0.514, -0.064, 0.031);
-    Q forth(-0.0959757, -1.94218, -2.59649, -0.559186, -0.030997, -1.18614);
-    Q fifth(-0.506006, -2.02601, -2.13599, -2.05101, -0.531994, -0.0659909);
-    //Here goes the ungrasping
-    Q sixth(-0.0980177, -1.81382, -2.42362, -1.76263, -0.12802, -0.286932);
-    Q seventh(-0.115, -1.629, -2.743, -1.658, -0.143, -0.257);
-    Q eight(1.219, -1.629, -2.743, -1.658, -0.143, -0.257);
-    Q nineth(2.79, -1.629, -2.743, -1.658, -0.143, -0.257);
-    Q tenth(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, to, 5.0);
+    /*Transform3D<> coord = getFk(target);
+    coord = coord.z++;
+    Q abovepickUp = this->getIK(coord);*/
+    Q pickUp(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
+    Q abovePickup(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);;
+    Q inter1(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
+    Q inter2(-0.096, -1.571, -2.661, -0.514, -0.064, 0.031);
+    Q inter3(-0.0959757, -1.94218, -2.59649, -0.559186, -0.030997, -1.18614);
+    Q inter4(-0.506006, -2.02601, -2.13599, -2.05101, -0.531994, -0.0659909);
+    Q abovePlace(-0.0980177, -1.81382, -2.42362, -1.76263, -0.12802, -0.286932);
+    Q place(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
+
+
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, abovePickup, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePickup, pickUp, 5.0);
     //grasping
     this->setGripper(true);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(to, second, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(second, third, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(third, forth, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(forth, fifth, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator6 = rw::trajectory::LinearInterpolator<rw::math::Q>(fifth, to, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(pickUp, inter1, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter1, inter2, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter2, inter3, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator6 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter3, inter4, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator7 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, abovePlace, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator8 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, place, 5.0);
     //ungrasping
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator7 = rw::trajectory::LinearInterpolator<rw::math::Q>(to, sixth, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator8 = rw::trajectory::LinearInterpolator<rw::math::Q>(sixth, seventh, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator9 = rw::trajectory::LinearInterpolator<rw::math::Q>(seventh, eight, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator10 = rw::trajectory::LinearInterpolator<rw::math::Q>(eight, nineth, 5.0);
-    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator11 = rw::trajectory::LinearInterpolator<rw::math::Q>(nineth, tenth, 5.0);
+    this->setGripper(false);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator9 = rw::trajectory::LinearInterpolator<rw::math::Q>(place, abovePlace, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator10 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, inter4, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator11 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, inter3, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator12 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter3, inter2, 5.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator13 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter2, inter1, 5.0);
 
     Q path_i = from;
     Q path_j = from;
     Q diff = from;
     this->moving_distance = 0.0;
-    for(int i = 1; i <= 11; i++)
+    for(int i = 1; i <= 13; i++)
     {
         if(i == 1)
         {
@@ -697,6 +699,32 @@ bool RwsInterface::linearPlanning(Q to)
             for(double i = 0; i < 5; i += 0.1)
             {
                 path_j = interpolator11.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 12)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator12.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+
+            }
+        }
+        if(i == 13)
+        {
+            for(double i = 0; i < 5; i += 0.1)
+            {
+                path_j = interpolator13.x(i);
                 this->setFK(path_j);
                 this->update();
                 diff = path_j-path_i;
@@ -944,20 +972,24 @@ void RwsInterface::setStereoNoise(float var)
     this->noisevar = var;
 }
 
-Matrix4f RwsInterface::getPose(int iterations)
+Transform3D<> RwsInterface::getPose(int iterations)
 {
 
     if(iterations == 0)
     {
-        iterations = 10000;
+        rw::math::Vector3D<> pos = rw::math::Vector3D<>(0.00935333, 0.479046, 0.13872);
+        rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        
+        Transform3D<> Tobj(pos, rotm);
+
+        return Tobj;
     }
 
     // Load
     PointCloud<PointT>::Ptr object(new PointCloud<PointT>);
     PointCloud<PointT>::Ptr scene(new PointCloud<PointT>);
-    loadPCDFile("bottle_origin.pcd", *object);
+    loadPCDFile("bottle.pcd", *object);
     loadPCDFile("scanner25D.pcd", *scene);
-
 
     // Compute surface normals
     NormalEstimation<PointT,PointT> ne;
@@ -1069,15 +1101,95 @@ Matrix4f RwsInterface::getPose(int iterations)
                 ++inliers, rmse += distsq[i][0];
         rmse = sqrtf(rmse / inliers);
     
-        // Show result
+        /* Show result
         PCLVisualizer v("After global alignment");
         v.addPointCloud<PointT>(object_aligned, PointCloudColorHandlerCustom<PointT>(object_aligned, 0, 255, 0), "object_aligned");
         v.addPointCloud<PointT>(scene, PointCloudColorHandlerCustom<PointT>(scene, 255, 0, 0),"scene");
         v.spin();
+        // Print pose*/
 
-        // Print pose
-        return pose;
+        rw::math::Vector3D<> pos = rw::math::Vector3D<>(pose(0,3), pose(1,3), pose(2,3));
+        rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(pose(0,0), pose(0,1), pose(0,2),pose(1,0), pose(1,1), pose(1,2),pose(2,0), pose(2,1), pose(2,2));
+        
+        Transform3D<> Tobj(pos, rotm);
+
+        //return Tobj;
+
+        Transform3D<> Tbasecam = Kinematics::frameTframe(this->urbase, this->cams.at(2), this->state);
+        return Tbasecam*Tobj;
     }
+}
+
+Matrix4f RwsInterface::getPoseLoc()
+{
+    // Load
+    PointCloud<PointT>::Ptr object(new PointCloud<PointT>);
+    PointCloud<PointT>::Ptr scene(new PointCloud<PointT>);
+    loadPCDFile("bottle.pcd", *object);
+    loadPCDFile("scanner25D.pcd", *scene);
+    
+    // Create a k-d tree for scene
+    search::KdTree<PointNormal> tree;
+    tree.setInputCloud(scene);
+    
+    // Set ICP parameters
+    const size_t iter =  500;
+    const float thressq = 0.01 * 0.01;
+    
+    // Start ICP
+    Matrix4f pose = Matrix4f::Identity();
+    PointCloud<PointNormal>::Ptr object_aligned(new PointCloud<PointNormal>(*object));
+    cout << "Starting ICP..." << endl;
+    for(size_t i = 0; i < iter; ++i) 
+    {
+        // 1) Find closest points
+        vector<vector<int> > idx;
+        vector<vector<float> > distsq;
+        tree.nearestKSearch(*object_aligned, std::vector<int>(), 1, idx, distsq);
+        
+        // Threshold and create indices for object/scene and compute RMSE
+        vector<int> idxobj;
+        vector<int> idxscn;
+        for(size_t j = 0; j < idx.size(); ++j) 
+        {
+            if(distsq[j][0] <= thressq) 
+            {
+                idxobj.push_back(j);
+                idxscn.push_back(idx[j][0]);
+            }
+        }
+        
+        // 2) Estimate transformation
+        Matrix4f T;
+        TransformationEstimationSVD<PointNormal,PointNormal> est;
+        est.estimateRigidTransformation(*object_aligned, idxobj, *scene, idxscn, T);
+        
+        // 3) Apply pose
+        transformPointCloud(*object_aligned, *object_aligned, T);
+        
+        // 4) Update result
+        pose = T * pose;
+        
+        // Compute inliers and RMSE
+        tree.nearestKSearch(*object_aligned, std::vector<int>(), 1, idx, distsq);
+        size_t inliers = 0;
+        float rmse = 0;
+        for(size_t i = 0; i < distsq.size(); ++i)
+            if(distsq[i][0] <= thressq)
+                ++inliers, rmse += distsq[i][0];
+        rmse = sqrtf(rmse / inliers);
+    } // End timing
+    
+    // Show result
+    PCLVisualizer v("After local alignment");
+    v.addPointCloud<PointNormal>(object_aligned, PointCloudColorHandlerCustom<PointNormal>(object_aligned, 0, 255, 0), "object_aligned");
+    v.addPointCloud<PointNormal>(scene, PointCloudColorHandlerCustom<PointNormal>(scene, 255, 0, 0),"scene");
+    v.spin();
+
+
+
+    // Print pose
+    return pose;
 }
 
 /**************************************************************************
@@ -1104,6 +1216,17 @@ inline float RwsInterface::dist_sq(const FeatureT& query, const FeatureT& target
     }
     
     return result;
+}
+
+rw::math::Transform3D<> RwsInterface::matrix2Transform(const Eigen::Matrix4f matrix) 
+{
+    rw::math::Vector3D<> pos = rw::math::Vector3D<>(matrix(0,3), matrix(1,3), matrix(2,3));
+    rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(matrix(0,0), matrix(0,1), matrix(0,2),
+                    matrix(1,0), matrix(1,1), matrix(1,2),
+                    matrix(2,0), matrix(2,1), matrix(2,2));
+    
+    RPY<> rpy = RPY<>(rotm);
+    return rw::math::Transform3D<>(pos, rpy);
 }
 
 bool RwsInterface::checkUrCollision(Q q)
