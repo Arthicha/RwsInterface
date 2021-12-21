@@ -173,6 +173,7 @@ public:
     **************************************************************************/
     bool planning(Q to, int algo, float estepsize);
     bool linearPlanning(Q to);
+    bool parabolicPlanning(Q target);
     float getMovingDistance();
 
     /**************************************************************************

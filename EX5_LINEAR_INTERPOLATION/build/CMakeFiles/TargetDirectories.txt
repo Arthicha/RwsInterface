@@ -1,4 +1,4 @@
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/rebuild_cache.dir
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/edit_cache.dir
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION.dir
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/rebuild_cache.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/edit_cache.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir

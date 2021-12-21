@@ -534,23 +534,21 @@ bool RwsInterface::linearPlanning(Q target)
 
     // initializer
     Q from = this->ur->getQ(this->state);
-    /*Transform3D<> coord = getFk(target);
-    coord = coord.z++;
-    Q abovepickUp = this->getIK(coord);*/
-    Q pickUp(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
-    Q abovePickup(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);;
-    Q inter1(1.635, -1.571, -2.597, -0.545, -0.064, 0.031);
-    Q inter2(-0.096, -1.571, -2.661, -0.514, -0.064, 0.031);
-    Q inter3(-0.0959757, -1.94218, -2.59649, -0.559186, -0.030997, -1.18614);
-    Q inter4(-0.506006, -2.02601, -2.13599, -2.05101, -0.531994, -0.0659909);
-    Q abovePlace(-0.0980177, -1.81382, -2.42362, -1.76263, -0.12802, -0.286932);
-    Q place(3.077, -1.571, -2.692, -2.051, -0.064, 0.031);
+    Transform3D<> coord = getFK(target);
+    coord.P()(2) = coord.P()(2) + 0.2;
+    Q abovePickup = this->getIK(coord);
+    Q pickUp = target;
+    Q inter1(1.86609, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter2(0.945619, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter3(-0.0298451, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter4(-0.750823, -1.88148, -0.187309, -2.25844, 1.44054, 0.309866);
+    Q abovePlace(-0.755972, -1.63188, -1.9015, -0.793235, 1.44248, 0.305049);
+    Q place(0.317, -0.493, 0.14, -2.65693, -6.98132e-05, -2.73605);
 
 
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, abovePickup, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePickup, pickUp, 5.0);
     //grasping
-    this->setGripper(true);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(pickUp, inter1, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter1, inter2, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter2, inter3, 5.0);
@@ -558,7 +556,6 @@ bool RwsInterface::linearPlanning(Q target)
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator7 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, abovePlace, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator8 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, place, 5.0);
     //ungrasping
-    this->setGripper(false);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator9 = rw::trajectory::LinearInterpolator<rw::math::Q>(place, abovePlace, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator10 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, inter4, 5.0);
     rw::trajectory::LinearInterpolator<rw::math::Q> interpolator11 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, inter3, 5.0);
@@ -576,6 +573,7 @@ bool RwsInterface::linearPlanning(Q target)
             for(double i = 0; i < 5; i += 0.1)
             {
                 path_j = interpolator1.x(i);
+                Transform3D<> t = getObjectPose(0);
                 this->setFK(path_j);
                 this->update();
                 diff = path_j-path_i;
@@ -596,6 +594,7 @@ bool RwsInterface::linearPlanning(Q target)
                 path_i = path_j;
 
             }
+            this->setGripper(true);
         }
         if(i == 3)
         {
@@ -674,6 +673,7 @@ bool RwsInterface::linearPlanning(Q target)
                 path_i = path_j;
 
             }
+            this->setGripper(false);
         }
         if(i == 9)
         {
@@ -744,6 +744,285 @@ bool RwsInterface::linearPlanning(Q target)
     return true;
 }
 
+bool RwsInterface::parabolicPlanning(Q target)
+{
+    /* 
+    function type: public function
+    input: target robot configuration (Q) and planning algorithm id
+    output: none
+    detail: perform linear planning  and update the simulation until the robot reaches the targets
+    */
+
+    // initializer
+    Q from = this->ur->getQ(this->state);
+    Transform3D<> coord = getFK(target);
+    coord.P()(2) = coord.P()(2) + 0.2;
+    Q abovePickup = this->getIK(coord);
+    Q pickUp = target;
+    Q inter1(1.86609, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter2(0.945619, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter3(-0.0298451, -1.7854, -0.334615, -2.21355, 1.42239, 0.355471);
+    Q inter4(-0.750823, -1.88148, -0.187309, -2.25844, 1.44054, 0.309866);
+    Q abovePlace(-0.755972, -1.63188, -1.9015, -0.793235, 1.44248, 0.305049);
+    Q place(0.317, -0.493, 0.14, -2.65693, -6.98132e-05, -2.73605);
+
+
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator1 = rw::trajectory::LinearInterpolator<rw::math::Q>(from, abovePickup, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator2 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePickup, pickUp, 1.0);
+    //grasping
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator3 = rw::trajectory::LinearInterpolator<rw::math::Q>(pickUp, inter1, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator4 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter1, inter2, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator5 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter2, inter3, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator6 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter3, inter4, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator7 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, abovePlace, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator8 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, place, 1.0);
+    //ungrasping
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator9 = rw::trajectory::LinearInterpolator<rw::math::Q>(place, abovePlace, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator10 = rw::trajectory::LinearInterpolator<rw::math::Q>(abovePlace, inter4, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator11 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter4, inter3, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator12 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter3, inter2, 1.0);
+    rw::trajectory::LinearInterpolator<rw::math::Q> interpolator13 = rw::trajectory::LinearInterpolator<rw::math::Q>(inter2, inter1, 1.0);
+
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender1 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator3, interpolator4, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender2 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator4, interpolator5, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender3 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator5, interpolator6, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender4 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator6, interpolator7, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender5 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator10, interpolator11, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender6 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator11, interpolator12, 0.5);
+    rw::trajectory::ParabolicBlend<rw::math::Q> blender7 = rw::trajectory::ParabolicBlend<rw::math::Q>(interpolator12, interpolator13, 0.5);
+
+    Q path_i = from;
+    Q path_j = from;
+    Q diff = from;
+    this->moving_distance = 0.0;
+    for(int i = 1; i <= 13; i++)
+    {
+        if(i == 1)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator1.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 2)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator2.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            this->setGripper(true);
+        }
+        if(i == 3)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator3.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender1.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+
+        }
+        if(i == 4)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator4.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender2.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 5)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator5.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender3.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 6)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator6.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender4.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 7)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator7.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 8)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator8.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            this->setGripper(false);
+        }
+        if(i == 9)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator9.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 10)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator10.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender5.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 11)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator11.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender6.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 12)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator12.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = blender7.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+        if(i == 13)
+        {
+            for(double i = 0; i < 1; i += 0.1)
+            {
+                path_j = interpolator13.x(i);
+                this->setFK(path_j);
+                this->update();
+                diff = path_j-path_i;
+                this->moving_distance += diff.norm2();
+                path_i = path_j;
+            }
+        }
+    }
+    return true;
+}
+
 float RwsInterface::getMovingDistance()
 {
     return this->moving_distance;
@@ -760,7 +1039,7 @@ void RwsInterface::setGripper(bool state)
     output: none
     detail: set gripper to open or close
     */
-    Q q(1,0.055);
+    Q q(1,0.075);
     if(state)
     {
         bool col = false;
@@ -1040,7 +1319,7 @@ Transform3D<> RwsInterface::getPose(int iterations)
 
     // Set RANSAC parameters
     const size_t iter = iterations;
-    const float thressq = 0.01 * 0.01;
+    const float thressq = 0.01 * 0.1;
 
     // Start RANSAC
     Matrix4f pose = Matrix4f::Identity();
@@ -1120,6 +1399,8 @@ Transform3D<> RwsInterface::getPose(int iterations)
         rw::math::Rotation3D<> rotm = rw::math::Rotation3D<>(pose(0,0), pose(0,1), pose(0,2),pose(1,0), pose(1,1), pose(1,2),pose(2,0), pose(2,1), pose(2,2));
         
         Transform3D<> Tobj(pos, rotm);
+
+        Tobj.P()(2) = Tobj.P()(2)+0.02;
 
         //return Tobj;
 

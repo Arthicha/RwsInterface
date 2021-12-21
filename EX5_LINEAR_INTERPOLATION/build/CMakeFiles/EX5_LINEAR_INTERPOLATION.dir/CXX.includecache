@@ -78,17 +78,17 @@ pcl/registration/transformation_estimation_svd.h
 pcl/visualization/pcl_visualizer.h
 -
 
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp
 RwsInterface.h
-/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/RwsInterface.h
+/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/RwsInterface.h
 random
 -
 
-/home/student/RoViProject/RwsInterface/RwsInterface.cpp
+/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.cpp
 RwsInterface.h
-/home/student/RoViProject/RwsInterface/RwsInterface.h
+/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.h
 
-/home/student/RoViProject/RwsInterface/RwsInterface.h
+/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.h
 rw/rw.hpp
 -
 rw/core/PropertyMap.hpp

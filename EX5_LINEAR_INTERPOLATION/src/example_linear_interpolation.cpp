@@ -5,17 +5,8 @@
 #define PLANNINGALGO 2
 #define ESTEPSIZE 0.3
 
-int randomGenerator() // random selected object
-{
-    random_device r;
-    default_random_engine e1(r());
-    uniform_int_distribution<int> uniform_dist(0, 2);
-    return uniform_dist(e1);
-}
-
 int main (int argc, char** argv)
 {
-    int rand = randomGenerator();
     RwsInterface sim(WC_FILE);
     RobWorkStudioApp app ("");
     RWS_START (app)
@@ -24,7 +15,6 @@ int main (int argc, char** argv)
         sim.setup(&app);
         sim.setDelay(10);
         sim.setGraspingOrientation(0);
-        sim.setTargetIdx(rand);
         //for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
         //sim.moveUR(0.0608913,0.104499,0.392774,0,0,0);
         sim.update();
@@ -34,24 +24,11 @@ int main (int argc, char** argv)
         sim.setGripper(false);
         sim.update();
         
-        // move to the object 
-        Q target = ;
+        // move the object to the goal
+        Q target(1.86609, -1.38378, -2.06223, -0.887552, 1.42239, 0.355471);
         sim.linearPlanning(target);
         sim.update();
-        // grasp the object
-        sim.setGripper(true);
-        sim.update();
-        // move to place area/location
-        sim.linearPlanning(sim.getGoalQ());
-        sim.update();
-        // place the object
-        sim.setGripper(false);
-        sim.terminateObject();
-        sim.update();
-        sim.delay(2.0);
-        // move to home configuration
-        sim.linearPlanning(sim.getHomeQ());
-        sim.update();
+
         sim.delay(2.0);
         bool a;
         while(true)

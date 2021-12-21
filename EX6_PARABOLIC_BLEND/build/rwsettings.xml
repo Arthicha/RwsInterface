@@ -8,13 +8,13 @@
     <Property>
      <Name>AngleUnit</Name>
      <Value>
-      <String>Radians</String>
+      <String>Degrees</String>
      </Value>
     </Property>
     <Property>
      <Name>DistanceUnit</Name>
      <Value>
-      <String>Meters</String>
+      <String>Centimeters</String>
      </Value>
     </Property>
     <Property>
@@ -254,7 +254,7 @@
     <Property>
      <Name>WindowPosX</Name>
      <Value>
-      <Integer>72</Integer>
+      <Integer>0</Integer>
      </Value>
     </Property>
     <Property>
@@ -329,9 +329,21 @@
      </Value>
     </Property>
     <Property>
+     <Name>GL_MULTISAMPLE</Name>
+     <Value>
+      <Boolean>0</Boolean>
+     </Value>
+    </Property>
+    <Property>
      <Name>GL_NORMALIZE</Name>
      <Value>
       <Boolean>1</Boolean>
+     </Value>
+    </Property>
+    <Property>
+     <Name>GL_NR_SAMPLES</Name>
+     <Value>
+      <Integer>4</Integer>
      </Value>
     </Property>
     <Property>

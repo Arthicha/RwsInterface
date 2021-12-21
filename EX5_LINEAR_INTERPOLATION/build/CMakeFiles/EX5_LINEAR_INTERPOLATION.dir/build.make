@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION
+CMAKE_SOURCE_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
+CMAKE_BINARY_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/depend.make
@@ -59,55 +59,55 @@ include CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/flags.make
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/flags.make
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o: EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o -c /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o -c "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp"
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp > CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp" > CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp" -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/flags.make
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o: ../src/example_linear_interpolation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o -c /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o -c "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp"
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp > CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp" > CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.i
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp" -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.s
 
-CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/flags.make
-CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o: /home/student/RoViProject/RwsInterface/RwsInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o -c /home/student/RoViProject/RwsInterface/RwsInterface.cpp
+CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/flags.make
+CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o: /home/student/RoViProject\ (another\ copy)/RwsInterface/RwsInterface/RwsInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o" -c "/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.cpp"
 
-CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/student/RoViProject/RwsInterface/RwsInterface.cpp > CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
+CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.cpp" > "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i"
 
-CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/student/RoViProject/RwsInterface/RwsInterface.cpp -o CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
+CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.cpp" -o "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s"
 
 # Object files for target EX5_LINEAR_INTERPOLATION
 EX5_LINEAR_INTERPOLATION_OBJECTS = \
 "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o" \
-"CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o"
+"CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o"
 
 # External object files for target EX5_LINEAR_INTERPOLATION
 EX5_LINEAR_INTERPOLATION_EXTERNAL_OBJECTS =
 
 EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o
 EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o
-EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
+EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o
 EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make
 EX5_LINEAR_INTERPOLATION: /usr/lib/x86_64-linux-gnu/libxerces-c.so
 EX5_LINEAR_INTERPOLATION: /usr/lib/x86_64-linux-gnu/liblua5.3.so
@@ -315,7 +315,7 @@ EX5_LINEAR_INTERPOLATION: /usr/lib/x86_64-linux-gnu/libX11.so
 EX5_LINEAR_INTERPOLATION: /usr/lib/x86_64-linux-gnu/libXext.so
 EX5_LINEAR_INTERPOLATION: /usr/lib/x86_64-linux-gnu/libXt.so
 EX5_LINEAR_INTERPOLATION: CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX5_LINEAR_INTERPOLATION"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX5_LINEAR_INTERPOLATION"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -328,6 +328,6 @@ CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/clean:
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/clean
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/depend:
-	cd /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/RoViProject/EX5_LINEAR_INTERPOLATION /home/student/RoViProject/EX5_LINEAR_INTERPOLATION /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/depend
 

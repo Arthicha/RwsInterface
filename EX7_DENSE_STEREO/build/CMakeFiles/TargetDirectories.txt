@@ -1,4 +1,4 @@
-/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/rebuild_cache.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/edit_cache.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/EX7_DENSE_STEREO.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/EX7_DENSE_STEREO_autogen.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/rebuild_cache.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/edit_cache.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/EX7_DENSE_STEREO.dir
+/home/student/RoViProject (another copy)/RwsInterface/EX7_DENSE_STEREO/build/CMakeFiles/EX7_DENSE_STEREO_autogen.dir

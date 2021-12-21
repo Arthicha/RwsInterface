@@ -1,21 +1,21 @@
 {
-	"BUILD_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen",
-	"CMAKE_BINARY_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION",
+	"BUILD_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen",
+	"CMAKE_BINARY_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION",
+	"CMAKE_SOURCE_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION",
 	"HEADERS" : 
 	[
 		[
-			"/home/student/RoViProject/RwsInterface/RwsInterface.h",
+			"/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.h",
 			"Mu",
-			"6DNMURGO42/moc_RwsInterface.cpp"
+			"7F6YKICVWZ/moc_RwsInterface.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"BOOST_ALL_NO_LIB",
@@ -56,7 +56,7 @@
 		"/usr/include/python3.8",
 		"/home/student/RobWork/RobWorkStudio/src",
 		"/home/student/RobWork/RobWorkStudio/ext/qtpropertybrowser/src",
-		"/home/student/RoViProject/RwsInterface",
+		"/home/student/RoViProject (another copy)/RwsInterface/RwsInterface",
 		"/usr/include/lua5.3",
 		"/usr/include/eigen3",
 		"/usr/include/libqhull_r",
@@ -95,23 +95,26 @@
 		"-c",
 		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/EX5_LINEAR_INTERPOLATION_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 6,
-	"PARSE_CACHE_FILE" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp",
+			"/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/src/example_linear_interpolation.cpp",
 			"Mu"
 		],
-		[ "/home/student/RoViProject/RwsInterface/RwsInterface.cpp", "Mu" ]
+		[
+			"/home/student/RoViProject (another copy)/RwsInterface/RwsInterface/RwsInterface.cpp",
+			"Mu"
+		]
 	],
 	"VERBOSITY" : 0
 }

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION
+CMAKE_SOURCE_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
+CMAKE_BINARY_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build"
 
 # Utility rule file for EX5_LINEAR_INTERPOLATION_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
 include CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/progress.make
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EX5_LINEAR_INTERPOLATION"
-	/usr/bin/cmake -E cmake_autogen /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/AutogenInfo.json Release
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EX5_LINEAR_INTERPOLATION"
+	/usr/bin/cmake -E cmake_autogen "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/AutogenInfo.json" Release
 
 EX5_LINEAR_INTERPOLATION_autogen: CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen
 EX5_LINEAR_INTERPOLATION_autogen: CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/clean:
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/clean
 
 CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/depend:
-	cd /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/student/RoViProject/EX5_LINEAR_INTERPOLATION /home/student/RoViProject/EX5_LINEAR_INTERPOLATION /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/depend
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION
+CMAKE_SOURCE_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
+CMAKE_BINARY_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -163,32 +163,32 @@ EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
 .PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
 
-home/student/RoViProject/RwsInterface/RwsInterface.o: home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.o
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o
 
 # target to build an object file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o:
+	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-home/student/RoViProject/RwsInterface/RwsInterface.i: home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.i
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i
 
 # target to preprocess a source file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i:
+	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-home/student/RoViProject/RwsInterface/RwsInterface.s: home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.s
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s
 
 # target to generate assembly for a file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s:
+	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make "CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
 src/example_linear_interpolation.o: src/example_linear_interpolation.cpp.o
 
@@ -230,9 +230,9 @@ help:
 	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.o"
 	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.i"
 	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.s"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.o"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.i"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.s"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s"
 	@echo "... src/example_linear_interpolation.o"
 	@echo "... src/example_linear_interpolation.i"
 	@echo "... src/example_linear_interpolation.s"

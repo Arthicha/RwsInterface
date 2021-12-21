@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "EX7_DENSE_STEREO_autogen"
-  "CMakeFiles/EX7_DENSE_STEREO_autogen.dir/AutogenOldSettings.txt"
   "CMakeFiles/EX7_DENSE_STEREO_autogen"
   "EX7_DENSE_STEREO_autogen/mocs_compilation.cpp"
 )

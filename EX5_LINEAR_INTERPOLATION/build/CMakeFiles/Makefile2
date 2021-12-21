@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION
+CMAKE_SOURCE_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
+CMAKE_BINARY_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -75,14 +75,14 @@ clean: CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/clean
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/all: CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/all
 	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/depend
 	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=1,2,3,4 "Built target EX5_LINEAR_INTERPOLATION"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=1,2,3,4 "Built target EX5_LINEAR_INTERPOLATION"
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" 0
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/rule
 
 # Convenience name for target.
@@ -102,14 +102,14 @@ CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/clean:
 CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/all:
 	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/depend
 	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles --progress-num=5 "Built target EX5_LINEAR_INTERPOLATION_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" --progress-num=5 "Built target EX5_LINEAR_INTERPOLATION_autogen"
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX5_LINEAR_INTERPOLATION/build/CMakeFiles" 0
 .PHONY : CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/rule
 
 # Convenience name for target.

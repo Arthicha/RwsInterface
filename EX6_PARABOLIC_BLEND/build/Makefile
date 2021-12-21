@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION
+CMAKE_SOURCE_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX6_PARABOLIC_BLEND"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build
+CMAKE_BINARY_DIR = "/home/student/RoViProject (another copy)/RwsInterface/EX6_PARABOLIC_BLEND/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX6_PARABOLIC_BLEND/build/CMakeFiles" "/home/student/RoViProject (another copy)/RwsInterface/EX6_PARABOLIC_BLEND/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/student/RoViProject/EX5_LINEAR_INTERPOLATION/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/student/RoViProject (another copy)/RwsInterface/EX6_PARABOLIC_BLEND/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,111 +111,111 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named EX5_LINEAR_INTERPOLATION
+# Target rules for targets named EX6_PARABOLIC_BLEND
 
 # Build rule for target.
-EX5_LINEAR_INTERPOLATION: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EX5_LINEAR_INTERPOLATION
-.PHONY : EX5_LINEAR_INTERPOLATION
+EX6_PARABOLIC_BLEND: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EX6_PARABOLIC_BLEND
+.PHONY : EX6_PARABOLIC_BLEND
 
 # fast build rule for target.
-EX5_LINEAR_INTERPOLATION/fast:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build
-.PHONY : EX5_LINEAR_INTERPOLATION/fast
+EX6_PARABOLIC_BLEND/fast:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/build
+.PHONY : EX6_PARABOLIC_BLEND/fast
 
 #=============================================================================
-# Target rules for targets named EX5_LINEAR_INTERPOLATION_autogen
+# Target rules for targets named EX6_PARABOLIC_BLEND_autogen
 
 # Build rule for target.
-EX5_LINEAR_INTERPOLATION_autogen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 EX5_LINEAR_INTERPOLATION_autogen
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen
+EX6_PARABOLIC_BLEND_autogen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 EX6_PARABOLIC_BLEND_autogen
+.PHONY : EX6_PARABOLIC_BLEND_autogen
 
 # fast build rule for target.
-EX5_LINEAR_INTERPOLATION_autogen/fast:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION_autogen.dir/build
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/fast
+EX6_PARABOLIC_BLEND_autogen/fast:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND_autogen.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND_autogen.dir/build
+.PHONY : EX6_PARABOLIC_BLEND_autogen/fast
 
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.o: EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.o: EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.o
 
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.o
-
-# target to build an object file
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.o
-
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.i: EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i
-
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.i
-
-# target to preprocess a source file
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.i
-
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.s: EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
-
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.s
-
-# target to generate assembly for a file
-EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
-.PHONY : EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.cpp.s
-
-home/student/RoViProject/RwsInterface/RwsInterface.o: home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
-
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.o
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.o
 
 # target to build an object file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.o
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.o:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.o
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.o
 
-home/student/RoViProject/RwsInterface/RwsInterface.i: home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.i: EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.i
 
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.i
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.i
 
 # target to preprocess a source file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.i
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.i:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.i
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.i
 
-home/student/RoViProject/RwsInterface/RwsInterface.s: home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.s: EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.s
 
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.s
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.s
 
 # target to generate assembly for a file
-home/student/RoViProject/RwsInterface/RwsInterface.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
-.PHONY : home/student/RoViProject/RwsInterface/RwsInterface.cpp.s
+EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.s:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.s
+.PHONY : EX6_PARABOLIC_BLEND_autogen/mocs_compilation.cpp.s
 
-src/example_linear_interpolation.o: src/example_linear_interpolation.cpp.o
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-.PHONY : src/example_linear_interpolation.o
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o
 
 # target to build an object file
-src/example_linear_interpolation.cpp.o:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.o
-.PHONY : src/example_linear_interpolation.cpp.o
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make "CMakeFiles/EX6_PARABOLIC_BLEND.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-src/example_linear_interpolation.i: src/example_linear_interpolation.cpp.i
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-.PHONY : src/example_linear_interpolation.i
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i
 
 # target to preprocess a source file
-src/example_linear_interpolation.cpp.i:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.i
-.PHONY : src/example_linear_interpolation.cpp.i
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make "CMakeFiles/EX6_PARABOLIC_BLEND.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-src/example_linear_interpolation.s: src/example_linear_interpolation.cpp.s
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s: home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
-.PHONY : src/example_linear_interpolation.s
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s
 
 # target to generate assembly for a file
-src/example_linear_interpolation.cpp.s:
-	$(MAKE) -f CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/build.make CMakeFiles/EX5_LINEAR_INTERPOLATION.dir/src/example_linear_interpolation.cpp.s
-.PHONY : src/example_linear_interpolation.cpp.s
+home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make "CMakeFiles/EX6_PARABOLIC_BLEND.dir/home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s"
+.PHONY : home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.cpp.s
+
+src/example_parabolic_blend.o: src/example_parabolic_blend.cpp.o
+
+.PHONY : src/example_parabolic_blend.o
+
+# target to build an object file
+src/example_parabolic_blend.cpp.o:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/src/example_parabolic_blend.cpp.o
+.PHONY : src/example_parabolic_blend.cpp.o
+
+src/example_parabolic_blend.i: src/example_parabolic_blend.cpp.i
+
+.PHONY : src/example_parabolic_blend.i
+
+# target to preprocess a source file
+src/example_parabolic_blend.cpp.i:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/src/example_parabolic_blend.cpp.i
+.PHONY : src/example_parabolic_blend.cpp.i
+
+src/example_parabolic_blend.s: src/example_parabolic_blend.cpp.s
+
+.PHONY : src/example_parabolic_blend.s
+
+# target to generate assembly for a file
+src/example_parabolic_blend.cpp.s:
+	$(MAKE) -f CMakeFiles/EX6_PARABOLIC_BLEND.dir/build.make CMakeFiles/EX6_PARABOLIC_BLEND.dir/src/example_parabolic_blend.cpp.s
+.PHONY : src/example_parabolic_blend.cpp.s
 
 # Help Target
 help:
@@ -225,17 +225,17 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... EX5_LINEAR_INTERPOLATION"
-	@echo "... EX5_LINEAR_INTERPOLATION_autogen"
-	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.o"
-	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.i"
-	@echo "... EX5_LINEAR_INTERPOLATION_autogen/mocs_compilation.s"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.o"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.i"
-	@echo "... home/student/RoViProject/RwsInterface/RwsInterface.s"
-	@echo "... src/example_linear_interpolation.o"
-	@echo "... src/example_linear_interpolation.i"
-	@echo "... src/example_linear_interpolation.s"
+	@echo "... EX6_PARABOLIC_BLEND"
+	@echo "... EX6_PARABOLIC_BLEND_autogen"
+	@echo "... EX6_PARABOLIC_BLEND_autogen/mocs_compilation.o"
+	@echo "... EX6_PARABOLIC_BLEND_autogen/mocs_compilation.i"
+	@echo "... EX6_PARABOLIC_BLEND_autogen/mocs_compilation.s"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.o"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.i"
+	@echo "... home/student/RoViProject_(another_copy)/RwsInterface/RwsInterface/RwsInterface.s"
+	@echo "... src/example_parabolic_blend.o"
+	@echo "... src/example_parabolic_blend.i"
+	@echo "... src/example_parabolic_blend.s"
 .PHONY : help
 
 
