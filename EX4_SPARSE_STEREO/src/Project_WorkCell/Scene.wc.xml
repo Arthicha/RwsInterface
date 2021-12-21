@@ -25,16 +25,16 @@
 
 	
 	<Frame name="Bottle" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -90 0 90 </RPY> <Pos> 0 0.474 0.21 </Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Bottle" refframe="Bottle">
          <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 
 	<Frame name="Square" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -50 0 90 </RPY> <Pos> 0.25 0.474 0.15</Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Square" refframe="Square">
-         <Polytope file="parts/square" />
+         <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 
@@ -53,9 +53,9 @@
 </Frame>
 
 	<Frame name="Cylinder" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -50 0 90 </RPY> <Pos> -0.25 0.674 0.150 </Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Cylinder" refframe="Cylinder">
-         <Polytope file="parts/cylinder" />
+         <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 

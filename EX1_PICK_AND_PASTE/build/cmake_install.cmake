@@ -1,4 +1,4 @@
-# Install script for directory: /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE
+# Install script for directory: /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

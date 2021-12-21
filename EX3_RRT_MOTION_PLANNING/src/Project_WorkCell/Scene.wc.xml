@@ -25,16 +25,16 @@
 
 	
 	<Frame name="Bottle" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -90 0 90 </RPY> <Pos> 0 0.474 0.21 </Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Bottle" refframe="Bottle">
          <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 
 	<Frame name="Square" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -50 0 90 </RPY> <Pos> 0.25 0.474 0.150</Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Square" refframe="Square">
-         <Polytope file="parts/square" />
+         <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 
@@ -53,9 +53,9 @@
 </Frame>
 
 	<Frame name="Cylinder" refframe="Table"  type="Movable" daf="true" >
-     <RPY> -50 0 90 </RPY> <Pos> -0.25 0.474 0.150 </Pos>
+     <RPY> -50 0 90 </RPY> <Pos> -0.15 0.474 0.250 </Pos>
      <Drawable name="Cylinder" refframe="Cylinder">
-         <Polytope file="parts/cylinder" />
+         <Polytope file="parts/bottle" />
      </Drawable>
 </Frame>
 
@@ -96,12 +96,12 @@
 <!-- Cameras -->
 
 <Frame name="Camera_Right" refframe="WORLD" type="Movable">
-	<Pos>0 0.500 1.000</Pos>
+	<Pos>-0.1 0.500 1.000</Pos>
 	<RPY>0 0 0</RPY>
 	<Property name="Camera" desc="[fovy,width,height]">50 640 480</Property>
 </Frame>
 <Frame name="Camera_Left" refframe="WORLD" type="Movable">
-	<Pos>0.2 0.500 1.000</Pos>
+	<Pos>0.1 0.500 1.000</Pos>
 	<RPY>0 0 0</RPY>
 	<Property name="Camera" desc="[fovy,width,height]">50 640 480</Property>
 </Frame>

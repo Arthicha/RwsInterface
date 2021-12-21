@@ -59,10 +59,10 @@ RM = /home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE
+CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build
+CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/EX1_PICK_AND_PASTE.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX
 CMakeFiles/EX1_PICK_AND_PASTE.dir/all: CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/all
 	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/depend
 	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=1,2,3,4 "Built target EX1_PICK_AND_PASTE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=1,2,3,4 "Built target EX1_PICK_AND_PASTE"
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/EX1_PICK_AND_PASTE.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EX1_PICK_AND_PASTE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX1_PICK_AND_PASTE.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles 0
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE.dir/rule
 
 # Convenience name for target.
@@ -108,14 +108,14 @@ clean: CMakeFiles/EX1_PICK_AND_PASTE.dir/clean
 CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/all:
 	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/depend
 	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=5 "Built target EX1_PICK_AND_PASTE_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=5 "Built target EX1_PICK_AND_PASTE_autogen"
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles 0
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/rule
 
 # Convenience name for target.

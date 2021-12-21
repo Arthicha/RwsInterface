@@ -22,7 +22,7 @@ int main (int argc, char** argv)
     {
         // setup
         sim.setup(&app);
-        sim.setDelay(10);
+        sim.setDelay(100);
         sim.setGraspingOrientation(0);
         sim.setTargetIdx(rand);
         for (int i=0;i<3;i++) if(i != rand) sim.moveObject(i,i*10+10.0,0.0,0.0,0.0,0,0.0);
@@ -35,8 +35,6 @@ int main (int argc, char** argv)
         sim.update();
 
         // calculate disparity map and estimate object pose
-        Mat disp = sim.computeDisparity();
-        imwrite("disparityMap.png",disp);
         Transform3D<> target = sim.sparseStereo(1);
         
         // move to the object 

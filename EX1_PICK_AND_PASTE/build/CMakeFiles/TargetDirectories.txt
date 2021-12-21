@@ -1,4 +1,4 @@
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/rebuild_cache.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/edit_cache.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir
-/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/rebuild_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/edit_cache.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir
+/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir

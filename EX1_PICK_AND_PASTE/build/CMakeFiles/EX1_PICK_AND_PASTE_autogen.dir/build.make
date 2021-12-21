@@ -43,10 +43,10 @@ RM = /home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE
+CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build
+CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build
 
 # Utility rule file for EX1_PICK_AND_PASTE_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX
 include CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/progress.make
 
 CMakeFiles/EX1_PICK_AND_PASTE_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EX1_PICK_AND_PASTE"
-	/home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_autogen /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/AutogenInfo.cmake Release
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target EX1_PICK_AND_PASTE"
+	/home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E cmake_autogen /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/AutogenInfo.cmake Release
 
 EX1_PICK_AND_PASTE_autogen: CMakeFiles/EX1_PICK_AND_PASTE_autogen
 EX1_PICK_AND_PASTE_autogen: CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/clean:
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/clean
 
 CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/depend:
-	cd /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE_autogen.dir/depend
 

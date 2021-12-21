@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o"
-  "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o"
-  "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o"
+  "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o"
+  "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o"
+  "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp" "/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

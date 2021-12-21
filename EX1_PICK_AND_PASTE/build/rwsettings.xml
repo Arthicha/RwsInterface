@@ -329,21 +329,9 @@
      </Value>
     </Property>
     <Property>
-     <Name>GL_MULTISAMPLE</Name>
-     <Value>
-      <Boolean>0</Boolean>
-     </Value>
-    </Property>
-    <Property>
      <Name>GL_NORMALIZE</Name>
      <Value>
       <Boolean>1</Boolean>
-     </Value>
-    </Property>
-    <Property>
-     <Name>GL_NR_SAMPLES</Name>
-     <Value>
-      <Integer>4</Integer>
      </Value>
     </Property>
     <Property>

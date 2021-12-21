@@ -48,10 +48,10 @@ RM = /home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE
+CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build
+CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -163,32 +163,32 @@ EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s:
 	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s
 .PHONY : EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s
 
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.o: home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.o: home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.o
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.o
 
 # target to build an object file
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o:
-	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o:
+	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o
 
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.i: home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.i: home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.i
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.i
 
 # target to preprocess a source file
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i:
-	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i:
+	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.s: home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.s: home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.s
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.s
 
 # target to generate assembly for a file
-home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s:
-	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s
-.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s
+home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s:
+	$(MAKE) -f CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s
+.PHONY : home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
 src/example_pick_and_paste.o: src/example_pick_and_paste.cpp.o
 
@@ -230,9 +230,9 @@ help:
 	@echo "... EX1_PICK_AND_PASTE_autogen/mocs_compilation.o"
 	@echo "... EX1_PICK_AND_PASTE_autogen/mocs_compilation.i"
 	@echo "... EX1_PICK_AND_PASTE_autogen/mocs_compilation.s"
-	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.o"
-	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.i"
-	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.s"
+	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.o"
+	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.i"
+	@echo "... home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.s"
 	@echo "... src/example_pick_and_paste.o"
 	@echo "... src/example_pick_and_paste.i"
 	@echo "... src/example_pick_and_paste.s"

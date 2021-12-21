@@ -43,10 +43,10 @@ RM = /home/zubuntu/.local/lib/python3.6/site-packages/cmake/data/bin/cmake -E re
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE
+CMAKE_SOURCE_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build
+CMAKE_BINARY_DIR = /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/EX1_PICK_AND_PASTE.dir/depend.make
@@ -59,54 +59,54 @@ include CMakeFiles/EX1_PICK_AND_PASTE.dir/flags.make
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o: CMakeFiles/EX1_PICK_AND_PASTE.dir/flags.make
 CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o: ../src/example_pick_and_paste.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.i
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/src/example_pick_and_paste.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.s
 
-CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o: CMakeFiles/EX1_PICK_AND_PASTE.dir/flags.make
-CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o: /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp
+CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o: CMakeFiles/EX1_PICK_AND_PASTE.dir/flags.make
+CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o: /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp
 
-CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.i
+CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.i
 
-CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.s
+CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.s
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o: CMakeFiles/EX1_PICK_AND_PASTE.dir/flags.make
 CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o: EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o -c /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp > CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp -o CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.s
 
 # Object files for target EX1_PICK_AND_PASTE
 EX1_PICK_AND_PASTE_OBJECTS = \
 "CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o" \
-"CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o" \
+"CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o" \
 "CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o"
 
 # External object files for target EX1_PICK_AND_PASTE
 EX1_PICK_AND_PASTE_EXTERNAL_OBJECTS =
 
 EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/src/example_pick_and_paste.cpp.o
-EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/RwsInterface/RwsInterface.cpp.o
+EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/RwsInterface/RwsInterface.cpp.o
 EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/EX1_PICK_AND_PASTE_autogen/mocs_compilation.cpp.o
 EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/build.make
 EX1_PICK_AND_PASTE: /usr/lib/x86_64-linux-gnu/libOpenGL.so
@@ -512,7 +512,7 @@ EX1_PICK_AND_PASTE: /usr/lib/x86_64-linux-gnu/libvtksys-6.3.so.6.3.0
 EX1_PICK_AND_PASTE: /usr/lib/x86_64-linux-gnu/libproj.so
 EX1_PICK_AND_PASTE: /usr/lib/x86_64-linux-gnu/libvtkCommonCore-6.3.so.6.3.0
 EX1_PICK_AND_PASTE: CMakeFiles/EX1_PICK_AND_PASTE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX1_PICK_AND_PASTE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable EX1_PICK_AND_PASTE"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/EX1_PICK_AND_PASTE.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -525,6 +525,6 @@ CMakeFiles/EX1_PICK_AND_PASTE.dir/clean:
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE.dir/clean
 
 CMakeFiles/EX1_PICK_AND_PASTE.dir/depend:
-	cd /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/workspace/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build /home/zubuntu/Projects/sdu_courses/rovis/project/RwsInterface/EX1_PICK_AND_PASTE/build/CMakeFiles/EX1_PICK_AND_PASTE.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/EX1_PICK_AND_PASTE.dir/depend
 
