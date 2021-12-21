@@ -1,5 +1,5 @@
 # RwsInterface
-This repository is a part of the SDU's RobVis Project 2021. It is crated based on [RobWork](https://www.robwork.dk/).
+This repository is a part of the SDU's RobVis Project 2021. It was crated based on [RobWork](https://www.robwork.dk/).
 
 ## Running the program
 To run the program, navigate to each forder (i.e. EX1...., EX2...., EX3 ....). Then create build directory and complete the file. using
